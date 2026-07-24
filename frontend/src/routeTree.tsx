@@ -5,6 +5,8 @@ import { Framework } from './components/Framework';
 import { WhatWeDo } from './components/WhatWeDo';
 import { Founders } from './components/Founders';
 import { Experience } from './components/Experience';
+import { Clients } from './components/Clients';
+import { Products } from './components/Products';
 import { Footer } from './components/Footer';
 
 const rootRoute = createRootRoute({
@@ -39,6 +41,8 @@ function LandingPage() {
       <WhatWeDo />
       <Founders />
       <Experience />
+      <Clients />
+      <Products />
       <div style={{ padding: '0 24px', maxWidth: '1200px', margin: '0 auto' }}>
         <section id="contact" style={sectionStyle}>
           <h2>Contact</h2>
