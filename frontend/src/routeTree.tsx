@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Framework } from './components/Framework';
 import { WhatWeDo } from './components/WhatWeDo';
+import { Founders } from './components/Founders';
 import { Footer } from './components/Footer';
 
 const rootRoute = createRootRoute({
@@ -35,11 +36,8 @@ function LandingPage() {
         <Framework />
       </div>
       <WhatWeDo />
+      <Founders />
       <div style={{ padding: '0 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <section id="founders" style={sectionStyle}>
-          <h2>Founders</h2>
-          <p style={placeholderStyle}>Section placeholder — Task 5</p>
-        </section>
         <section id="experience" style={sectionStyle}>
           <h2>Experience</h2>
           <p style={placeholderStyle}>Section placeholder — Task 6</p>
