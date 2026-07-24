@@ -1,5 +1,6 @@
 import { Outlet, createRootRoute, createRouter, createRoute } from '@tanstack/react-router';
 import { Header } from './components/Header';
+import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 
 const rootRoute = createRootRoute({
@@ -26,28 +27,31 @@ const indexRoute = createRoute({
 
 function LandingPage() {
   return (
-    <div style={{ padding: '80px 24px', maxWidth: '960px', margin: '0 auto' }}>
-      <section id="services" style={sectionStyle}>
-        <h2>Services</h2>
-        <p style={placeholderStyle}>Section placeholder — Task 4</p>
-      </section>
-      <section id="approach" style={sectionStyle}>
-        <h2>Approach</h2>
-        <p style={placeholderStyle}>Section placeholder — Task 3</p>
-      </section>
-      <section id="founders" style={sectionStyle}>
-        <h2>Founders</h2>
-        <p style={placeholderStyle}>Section placeholder — Task 5</p>
-      </section>
-      <section id="experience" style={sectionStyle}>
-        <h2>Experience</h2>
-        <p style={placeholderStyle}>Section placeholder — Task 6</p>
-      </section>
-      <section id="contact" style={sectionStyle}>
-        <h2>Contact</h2>
-        <p style={placeholderStyle}>Section placeholder — Task 8</p>
-      </section>
-    </div>
+    <>
+      <Hero />
+      <div style={{ padding: '0 24px', maxWidth: '1200px', margin: '0 auto' }}>
+        <section id="services" style={sectionStyle}>
+          <h2>Services</h2>
+          <p style={placeholderStyle}>Section placeholder — Task 4</p>
+        </section>
+        <section id="approach" style={sectionStyle}>
+          <h2>Approach</h2>
+          <p style={placeholderStyle}>Section placeholder — Task 3</p>
+        </section>
+        <section id="founders" style={sectionStyle}>
+          <h2>Founders</h2>
+          <p style={placeholderStyle}>Section placeholder — Task 5</p>
+        </section>
+        <section id="experience" style={sectionStyle}>
+          <h2>Experience</h2>
+          <p style={placeholderStyle}>Section placeholder — Task 6</p>
+        </section>
+        <section id="contact" style={sectionStyle}>
+          <h2>Contact</h2>
+          <p style={placeholderStyle}>Section placeholder — Task 8</p>
+        </section>
+      </div>
+    </>
   );
 }
 
