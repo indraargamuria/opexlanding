@@ -1,6 +1,7 @@
 import { Outlet, createRootRoute, createRouter, createRoute } from '@tanstack/react-router';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { Framework } from './components/Framework';
 import { Footer } from './components/Footer';
 
 const rootRoute = createRootRoute({
@@ -29,14 +30,13 @@ function LandingPage() {
   return (
     <>
       <Hero />
+      <div id="approach">
+        <Framework />
+      </div>
       <div style={{ padding: '0 24px', maxWidth: '1200px', margin: '0 auto' }}>
         <section id="services" style={sectionStyle}>
           <h2>Services</h2>
           <p style={placeholderStyle}>Section placeholder — Task 4</p>
-        </section>
-        <section id="approach" style={sectionStyle}>
-          <h2>Approach</h2>
-          <p style={placeholderStyle}>Section placeholder — Task 3</p>
         </section>
         <section id="founders" style={sectionStyle}>
           <h2>Founders</h2>
