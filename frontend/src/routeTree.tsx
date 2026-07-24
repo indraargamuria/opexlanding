@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Framework } from './components/Framework';
 import { WhatWeDo } from './components/WhatWeDo';
 import { Founders } from './components/Founders';
+import { Experience } from './components/Experience';
 import { Footer } from './components/Footer';
 
 const rootRoute = createRootRoute({
@@ -37,11 +38,8 @@ function LandingPage() {
       </div>
       <WhatWeDo />
       <Founders />
+      <Experience />
       <div style={{ padding: '0 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <section id="experience" style={sectionStyle}>
-          <h2>Experience</h2>
-          <p style={placeholderStyle}>Section placeholder — Task 6</p>
-        </section>
         <section id="contact" style={sectionStyle}>
           <h2>Contact</h2>
           <p style={placeholderStyle}>Section placeholder — Task 8</p>
