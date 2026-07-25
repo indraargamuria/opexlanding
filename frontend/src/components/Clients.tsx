@@ -119,10 +119,6 @@ const logoItemStyle: React.CSSProperties = {
   transition: 'opacity 0.2s ease',
 };
 
-const logoItemHoverStyle: React.CSSProperties = {
-  opacity: 1,
-};
-
 const logoImageStyle: React.CSSProperties = {
   maxWidth: '120px',
   maxHeight: '48px',

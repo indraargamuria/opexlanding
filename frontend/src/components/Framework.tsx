@@ -104,7 +104,6 @@ export function Framework() {
           <div style={gridStyle}>
             {phases.map((phase, i) => {
               const isActive = i <= activePhase;
-              const isCurrent = i === activePhase;
 
               return (
                 <div key={phase.number} style={cardStyle}>

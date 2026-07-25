@@ -82,60 +82,31 @@ function PartnerLogo({ partner }: { partner: { name: string; slug: string; isOwn
   );
 }
 
-// export function TechnologyPartners() {
-//   return (
-//     <section style={sectionStyle}>
-//       <div style={innerStyle}>
-//         <p style={overlineStyle}>Technology partners</p>
-//         <h2 style={headingStyle}>Our technology ecosystem</h2>
+export function TechnologyPartners() {
+  return (
+    <section style={sectionStyle}>
+      <div style={innerStyle}>
+        <p style={overlineStyle}>Technology partners</p>
+        <h2 style={headingStyle}>Our technology ecosystem</h2>
 
-//         <div style={categoriesStyle}>
-//           {partnerCategories.map((category) => (
-//             <div key={category.name} style={categoryBlockStyle}>
-//               <p style={categoryLabelStyle}>{category.name}</p>
-//               <div style={logosGridStyle}>
-//                 {category.partners.map((partner) => (
-//                   <div key={partner.name} style={logoItemStyle}>
-//                     <PartnerLogo partner={partner} />
-//                   </div>
-//                 ))}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export function TechnologyPartners() {
-//   return (
-//     <section style={sectionStyle}>
-//       <div style={innerStyle}>
-//         <p style={overlineStyle}>Technology partners</p>
-//         <h2 style={headingStyle}>Our technology ecosystem</h2>
-
-//         <div style={categoriesStyle}>
-//           {partnerCategories.map((category) => (
-//             <div key={category.name} style={categoryBlockStyle}>
-//               <p style={categoryLabelStyle}>{category.name}</p>
-//               <div style={logosGridStyle}>
-//                 {category.partners.map((partner) => (
-//                   <div key={partner} style={logoItemStyle}>
-//                     {/* <PlaceholderImage
-//                       label={`Technology partner logo — ${partner}`}
-//                       height="48px"
-//                     /> */}
-//                   </div>
-//                 ))}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
+        <div style={categoriesStyle}>
+          {partnerCategories.map((category) => (
+            <div key={category.name} style={categoryBlockStyle}>
+              <p style={categoryLabelStyle}>{category.name}</p>
+              <div style={logosGridStyle}>
+                {category.partners.map((partner) => (
+                  <div key={partner.slug} style={logoItemStyle}>
+                    <PartnerLogo partner={partner} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const sectionStyle: React.CSSProperties = {
   background: 'var(--white)',

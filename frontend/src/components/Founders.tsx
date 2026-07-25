@@ -1,5 +1,3 @@
-import { PlaceholderImage } from './PlaceholderImage';
-
 const founders = [
   {
     name: 'Pak Franklin',

@@ -21,7 +21,7 @@ const products = [
   },
 ];
 
-function ProductMockup({ productName, productImage, productAlt }: { productName: string; productImage: string; productAlt: string }) {
+function ProductMockup({ productImage, productAlt }: { productImage: string; productAlt: string }) {
   return (
     <div style={mockupStyle}>
       <div style={windowChromeStyle}>
@@ -77,7 +77,6 @@ export function Products() {
               }}
             >
               <ProductMockup
-                productName={product.name}
                 productImage={product.image}
                 productAlt={product.imageAlt}
               />
@@ -120,12 +119,6 @@ const gridStyle: React.CSSProperties = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
   gap: '32px',
-  '@media (max-width: 900px)': {
-    gridTemplateColumns: 'repeat(2, 1fr)',
-  },
-  '@media (max-width: 640px)': {
-    gridTemplateColumns: '1fr',
-  },
 };
 
 const cardStyle: React.CSSProperties = {
@@ -162,22 +155,6 @@ const dotStyle: React.CSSProperties = {
   height: '10px',
   borderRadius: '50%',
   background: 'rgba(255, 255, 255, 0.2)',
-};
-
-const placeholderStyle: React.CSSProperties = {
-  height: '120px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: '16px',
-  textAlign: 'center',
-  color: 'rgba(255, 255, 255, 0.35)',
-  fontFamily: 'var(--font-body)',
-  fontSize: 'var(--text-caption)',
-  lineHeight: 1.4,
-  border: '1px dashed rgba(255, 255, 255, 0.2)',
-  margin: '8px',
-  borderRadius: '4px',
 };
 
 const screenshotStyle: React.CSSProperties = {

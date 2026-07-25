@@ -155,7 +155,7 @@ export function WhatWeDo() {
                   <li key={cap.name} style={listItemStyle}>
                     <div style={iconWrapperStyle}>
                       <div style={iconBoxStyle} className="what-we-do-icon">
-                        {Icons[cap.icon]}
+                        {Icons[cap.icon as keyof typeof Icons]}
                       </div>
                     </div>
                     <div style={textContentStyle}>
@@ -176,7 +176,7 @@ export function WhatWeDo() {
                   <li key={cap.name} style={listItemStyle}>
                     <div style={iconWrapperStyle}>
                       <div style={iconBoxStyle} className="what-we-do-icon">
-                        {Icons[cap.icon]}
+                        {Icons[cap.icon as keyof typeof Icons]}
                       </div>
                     </div>
                     <div style={textContentStyle}>

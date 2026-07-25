@@ -1,5 +1,3 @@
-import { PlaceholderImage } from './PlaceholderImage';
-
 export function Hero() {
   return (
     <section style={sectionStyle}>
