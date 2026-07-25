@@ -1,22 +1,9 @@
-const offices = [
-  {
-    city: 'Singapore',
-    label: 'Singapore HQ',
-    address: '1 One North Crescent, Level 7, Razer Building, Singapore 138538',
-    phone: '+65 6640 3178',
-  },
-  {
-    city: 'Jakarta',
-    label: 'Jakarta',
-    address: 'Centennial Tower Lt. 29 Unit D-F, Jl. Jend Gatot Subroto Kav. 24-25, Jakarta Selatan 12930',
-    phone: '+62 21 3042 0660',
-  },
-  {
-    city: 'Penang',
-    label: 'Penang',
-    address: '1-21-01, Lintang Mayang Pasir 3, Suntech, 11950 Bayan Baru, Penang',
-    phone: '+604 202 0971',
-  },
+const sitemapLinks = [
+  { label: 'Services', href: '#services' },
+  { label: 'Approach', href: '#approach' },
+  { label: 'Founders', href: '#founders' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export function Footer() {
@@ -29,27 +16,25 @@ export function Footer() {
               <span style={logoMarkStyle}>Opex</span>CG
             </div>
             <p style={taglineStyle}>
-              Industrial transformation consulting.<br />
-              Lean Six Sigma &middot; Industry 4.0
+              Industrial transformation consulting.
             </p>
           </div>
 
-          <div style={officesGridStyle}>
-            {offices.map((office) => (
-              <div key={office.city} style={officeBlockStyle}>
-                <h4 style={officeCityStyle}>{office.label}</h4>
-                <p style={officeAddressStyle}>{office.address}</p>
-                <a href={`tel:${office.phone.replace(/\s/g, '')}`} style={phoneStyle}>
-                  {office.phone}
-                </a>
-              </div>
+          <nav style={navStyle}>
+            {sitemapLinks.map((link) => (
+              <a key={link.href} href={link.href} style={navLinkStyle}>
+                {link.label}
+              </a>
             ))}
-          </div>
+          </nav>
         </div>
 
         <div style={dividerStyle} />
 
         <div style={bottomRowStyle}>
+          <a href="#contact" style={contactLinkStyle}>
+            Get in touch
+          </a>
           <p style={copyrightStyle}>
             &copy; {new Date().getFullYear()} Opex Consulting Group. All rights reserved.
           </p>
@@ -78,7 +63,8 @@ const topRowStyle: React.CSSProperties = {
 };
 
 const logoBlockStyle: React.CSSProperties = {
-  maxWidth: '280px',
+  flex: 1,
+  minWidth: '200px',
 };
 
 const logoStyle: React.CSSProperties = {
@@ -99,37 +85,19 @@ const taglineStyle: React.CSSProperties = {
   opacity: 0.7,
 };
 
-const officesGridStyle: React.CSSProperties = {
+const navStyle: React.CSSProperties = {
   display: 'flex',
-  gap: '40px',
+  gap: '32px',
   flexWrap: 'wrap',
-  flex: 1,
-  justifyContent: 'flex-end',
 };
 
-const officeBlockStyle: React.CSSProperties = {
-  minWidth: '220px',
-  maxWidth: '300px',
-};
-
-const officeCityStyle: React.CSSProperties = {
-  fontFamily: 'var(--font-heading)',
-  fontSize: 'var(--text-h4)',
-  fontWeight: 600,
-  marginBottom: '8px',
-};
-
-const officeAddressStyle: React.CSSProperties = {
-  fontSize: 'var(--text-caption)',
-  lineHeight: 1.5,
-  opacity: 0.7,
-  marginBottom: '4px',
-};
-
-const phoneStyle: React.CSSProperties = {
-  fontSize: 'var(--text-caption)',
-  color: 'var(--brand)',
+const navLinkStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.9375rem',
+  fontWeight: 500,
+  color: 'rgba(255, 255, 255, 0.7)',
   textDecoration: 'none',
+  transition: 'color 0.15s ease',
 };
 
 const dividerStyle: React.CSSProperties = {
@@ -140,7 +108,18 @@ const dividerStyle: React.CSSProperties = {
 
 const bottomRowStyle: React.CSSProperties = {
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '16px',
+};
+
+const contactLinkStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-heading)',
+  fontSize: 'var(--text-caption)',
+  fontWeight: 600,
+  color: 'var(--brand)',
+  textDecoration: 'none',
 };
 
 const copyrightStyle: React.CSSProperties = {
