@@ -164,6 +164,44 @@ img {
   }
 }
 
+/* ── Hero Ken Burns (image zoom) ── */
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.hero-ken-burns {
+  animation: hero-ken-burns 15s ease-in-out infinite alternate;
+}
+
+/* ── Hero background pattern drift ── */
+@keyframes hero-pattern-drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-8px, -8px);
+  }
+}
+
+.hero-background-pattern {
+  animation: hero-pattern-drift 25s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns {
+    animation: none;
+  }
+
+  .hero-background-pattern {
+    animation: none;
+  }
+}
+
 /* ── Hero CTA button ── */
 .hero-cta {
   display: inline-block;

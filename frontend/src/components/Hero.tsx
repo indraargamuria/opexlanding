@@ -5,6 +5,7 @@ export function Hero() {
     <section style={sectionStyle}>
       <div style={innerStyle}>
         <div style={contentStyle}>
+          <div style={backgroundPatternStyle} className="hero-background-pattern" />
           <p style={overlineStyle} className="hero-fade-in">
             Lean Six Sigma &middot; Industry 4.0
           </p>
@@ -26,10 +27,15 @@ export function Hero() {
         </div>
 
         <div style={imageWrapStyle} className="hero-fade-in hero-delay-2">
-          <PlaceholderImage
-            label="Hero — founder/consultant in working session"
-            height="400px"
-          />
+          <div style={imageAnimationWrapperStyle}>
+            <div className="hero-ken-burns">
+              
+              <PlaceholderImage
+                label="Hero — founder/consultant in working session"
+                height="400px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -54,6 +60,28 @@ const contentStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   gap: '24px',
+  position: 'relative',
+};
+
+const backgroundPatternStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: '-20px',
+  left: '-20px',
+  right: '-20px',
+  bottom: '-20px',
+  opacity: 0.06,
+  backgroundImage: `
+    radial-gradient(circle, var(--brand) 1px, transparent 1px)
+  `,
+  backgroundSize: '24px 24px',
+  pointerEvents: 'none',
+  zIndex: 0,
+};
+
+const imageAnimationWrapperStyle: React.CSSProperties = {
+  width: '100%',
+  overflow: 'hidden',
+  borderRadius: '6px',
 };
 
 const overlineStyle: React.CSSProperties = {
