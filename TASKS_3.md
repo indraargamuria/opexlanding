@@ -241,6 +241,9 @@ Convert this into a continuously auto-scrolling horizontal marquee:
 4. Keep the section heading and background exactly as they are — only the
    logo row itself changes from a static grid to the marquee.
 ```
+## Task 9
+---
+
 Find the "Experience" / "Proven results across the floor" section — 4
 project articles (Automotive Parts Manufacturer, FMCG Conglomerate, Heavy
 Industry Conglomerate, Regional Food Producer), each with a Challenge /
@@ -268,9 +271,8 @@ card layout.
 3. Leave the card visual design, image placeholders, and Challenge/
    Approach/Outcome structure exactly as they are — this task only adds
    the count-up behavior and the filter control, nothing else.
----
 
-## After these eight
+## After these nine
 
 Once these land, worth a fresh full-page mhtml export and another audit
 pass — particularly to check the Experience/Clients polish items (count-up

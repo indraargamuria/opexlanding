@@ -1,9 +1,11 @@
+import { useState, useEffect, useRef } from 'react';
 import { PlaceholderImage } from './PlaceholderImage';
 
 const projects = [
   {
     client: 'Automotive Parts Manufacturer',
     sector: 'Automotive · Indonesia',
+    industry: 'Automotive',
     challenge: 'High defect rate on assembly line causing 12% rework costs and delayed shipments to OEM customers.',
     approach: 'Full DMAIC cycle — value stream mapping, root cause analysis with fishbone and 5-Why, then targeted IoT sensors for real-time defect tracking.',
     outcome: 'Defect rate reduced from 4.2% to 0.8% within 6 months. Rework cost savings of USD 340K annually.',
@@ -11,6 +13,7 @@ const projects = [
   {
     client: 'FMCG Conglomerate',
     sector: 'Consumer Goods · Malaysia',
+    industry: 'Consumer Goods',
     challenge: 'Fragmented production data across 3 factories making it impossible to benchmark OEE or allocate resources efficiently.',
     approach: 'Unified MES integration across all 3 sites with a central analytics dashboard. Brand-agnostic stack built on existing SCADA infrastructure.',
     outcome: 'OEE visibility improved from near-zero to 92% data coverage. Cross-factory benchmarking enabled, yielding 8% throughput gain in Year 1.',
@@ -18,6 +21,7 @@ const projects = [
   {
     client: 'Heavy Industry Conglomerate',
     sector: 'Manufacturing · Singapore',
+    industry: 'Manufacturing',
     challenge: 'Lean training stuck in classroom mode — low adoption on shop floor, no measurable behavioral change after certification.',
     approach: 'Redesigned Black Belt program with embedded Gemba walks, floor-based projects tied to real KPIs, and 90-day post-training coaching.',
     outcome: 'Project completion rate jumped from 35% to 88%. Certified practitioners delivered measurable cost savings averaging USD 120K per project.',
@@ -25,13 +29,128 @@ const projects = [
   {
     client: 'Regional Food Producer',
     sector: 'Food & Beverage · Indonesia',
+    industry: 'Food & Beverage',
     challenge: 'Batch yield inconsistency across production lines leading to material waste and unpredictable output schedules.',
     approach: 'Lean Six Sigma analysis of critical process parameters, followed by sensor-based monitoring and SPC dashboards for line supervisors.',
     outcome: 'Batch yield variance cut by 62%. Material waste reduction saved USD 210K annually with payback in under 8 months.',
   },
 ];
 
+const industries = ['All', 'Automotive', 'Consumer Goods', 'Manufacturing', 'Food & Beverage'];
+
+// Helper component for count-up animation
+function CountUpNumber({ value, duration = 1200 }: { value: number; duration?: number }) {
+  const [displayValue, setDisplayValue] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          observer.disconnect();
+
+          const startTime = performance.now();
+          const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function for smooth animation
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            setDisplayValue(value * easeOut);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setDisplayValue(value);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [value, duration, hasStarted]);
+
+  // Format the number based on its value
+  const formatNumber = (num: number) => {
+    if (Number.isInteger(num)) {
+      return Math.round(num).toString();
+    }
+    return num.toFixed(1);
+  };
+
+  return <span ref={ref}>{formatNumber(displayValue)}</span>;
+}
+
+// Helper function to parse outcome text and wrap numbers
+function parseOutcomeWithCountUp(text: string) {
+  const parts: (string | { value: number; isPercentage: boolean })[] = [];
+  let lastIndex = 0;
+
+  // Match numbers (including decimals and percentages)
+  const regex = /(\d+(?:\.\d+)?%?)/g;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the number
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    const matchedText = match[0];
+    const isPercentage = matchedText.includes('%');
+    const numericValue = parseFloat(matchedText.replace('%', ''));
+
+    parts.push({ value: numericValue, isPercentage });
+    lastIndex = regex.lastIndex;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts;
+}
+
+// Component to render parsed outcome with count-up numbers
+function OutcomeWithCountUp({ text }: { text: string }) {
+  const parts = parseOutcomeWithCountUp(text);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (typeof part === 'string') {
+          return <span key={`text-${index}`}>{part}</span>;
+        }
+        return (
+          <span key={`num-${index}`} style={{ fontWeight: 600, color: 'var(--dark-accent)' }}>
+            <CountUpNumber value={part.value} />
+            {part.isPercentage && '%'}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
 export function Experience() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filteredProjects =
+    activeFilter === 'All'
+      ? projects
+      : projects.filter((project) => project.industry === activeFilter);
+
   return (
     <section style={sectionStyle} id="experience">
       <div style={innerStyle}>
@@ -44,8 +163,24 @@ export function Experience() {
           </p>
         </div>
 
+        {/* Industry filter tabs */}
+        <div style={filterContainerStyle}>
+          {industries.map((industry) => (
+            <button
+              key={industry}
+              onClick={() => setActiveFilter(industry)}
+              style={{
+                ...filterButtonStyle,
+                ...(activeFilter === industry ? filterButtonActiveStyle : {}),
+              }}
+            >
+              {industry}
+            </button>
+          ))}
+        </div>
+
         <div style={listStyle}>
-          {projects.map((project, i) => (
+          {filteredProjects.map((project, i) => (
             <article
               key={project.client}
               style={{
@@ -77,7 +212,9 @@ export function Experience() {
                   </div>
                   <div style={outcomeBlockStyle}>
                     <span style={labelStyle}>Outcome</span>
-                    <p style={outcomeTextStyle}>{project.outcome}</p>
+                    <p style={outcomeTextStyle}>
+                      <OutcomeWithCountUp text={project.outcome} />
+                    </p>
                   </div>
                 </div>
               </div>
@@ -224,4 +361,31 @@ const outcomeTextStyle: React.CSSProperties = {
   fontWeight: 500,
   lineHeight: 1.6,
   color: 'var(--dark-text)',
+};
+
+const filterContainerStyle: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '12px',
+  marginBottom: '48px',
+  flexWrap: 'wrap',
+};
+
+const filterButtonStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: 'var(--text-caption)',
+  fontWeight: 500,
+  padding: '10px 20px',
+  border: '1px solid var(--border)',
+  borderRadius: '20px',
+  background: 'var(--white)',
+  color: 'var(--muted)',
+  cursor: 'pointer',
+  transition: 'all 0.15s ease',
+};
+
+const filterButtonActiveStyle: React.CSSProperties = {
+  background: 'var(--brand)',
+  color: 'var(--white)',
+  borderColor: 'var(--brand)',
 };
