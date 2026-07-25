@@ -7,6 +7,7 @@ import { Founders } from './components/Founders';
 import { Experience } from './components/Experience';
 import { Clients } from './components/Clients';
 import { Products } from './components/Products';
+import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
 const rootRoute = createRootRoute({
@@ -43,12 +44,7 @@ function LandingPage() {
       <Experience />
       <Clients />
       <Products />
-      <div style={{ padding: '0 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <section id="contact" style={sectionStyle}>
-          <h2>Contact</h2>
-          <p style={placeholderStyle}>Section placeholder — Task 8</p>
-        </section>
-      </div>
+      <Contact />
     </>
   );
 }
@@ -62,13 +58,3 @@ declare module '@tanstack/react-router' {
     router: typeof router;
   }
 }
-
-const sectionStyle: React.CSSProperties = {
-  padding: '48px 0',
-  borderBottom: '1px solid var(--border)',
-};
-
-const placeholderStyle: React.CSSProperties = {
-  color: 'var(--muted)',
-  marginTop: '12px',
-};

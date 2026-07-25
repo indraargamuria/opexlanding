@@ -190,3 +190,26 @@ img {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
 }
+
+/* ── Contact form ── */
+.contact-input:focus {
+  border-color: var(--brand);
+}
+
+.contact-input::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.contact-btn:hover {
+  background: var(--brand-hover);
+}
+
+.contact-btn:active {
+  background: var(--brand-active);
+}
+
+.contact-btn:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
