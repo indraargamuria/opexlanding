@@ -5,21 +5,25 @@ const phases = [
     number: '01',
     title: 'Assessment',
     description: 'Map your current state, quantify waste, and identify the highest-impact improvement opportunities across people, process, and technology.',
+    imageLabel: 'Assessment — gemba walk photo placeholder',
   },
   {
     number: '02',
     title: 'Improvement',
     description: 'Apply Lean Six Sigma methodology to eliminate root causes, streamline workflows, and build a culture of continuous improvement.',
+    imageLabel: 'Improvement — workshop session photo placeholder',
   },
   {
     number: '03',
     title: 'Solutioning',
     description: 'Select and design the best-fit Industry 4.0 tools for your floor — brand-agnostic, vendor-neutral, matched to your real constraints.',
+    imageLabel: 'Solutioning — system design photo placeholder',
   },
   {
     number: '04',
     title: 'Implementation',
     description: 'Deploy, train, and sustain. We stay through the transition to ensure adoption sticks and measurable results compound.',
+    imageLabel: 'Implementation — go-live support photo placeholder',
   },
 ];
 
@@ -82,40 +86,45 @@ export function Framework() {
           </p>
         </div>
 
-        <div style={gridStyle}>
-          {phases.map((phase, i) => {
-            const isActive = i <= activePhase;
-            const isCurrent = i === activePhase;
+        <div style={gridWrapperStyle}>
+          {/* Continuous connecting line behind all phases */}
+          <div style={lineTrackContainerStyle}>
+            <div
+              style={{
+                ...lineFillStyle,
+                width: activePhase >= 0 ? `${((activePhase + 1) / phases.length) * 100}%` : '0%',
+              }}
+            />
+          </div>
 
-            return (
-              <div key={phase.number} style={cardWrapperStyle}>
-                {/* Connecting line (not on first card) */}
-                {i > 0 && (
-                  <div style={lineTrackStyle}>
-                    <div
-                      style={{
-                        ...lineFillStyle,
-                        transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
-                      }}
-                    />
-                  </div>
-                )}
+          <div style={gridStyle}>
+            {phases.map((phase, i) => {
+              const isActive = i <= activePhase;
+              const isCurrent = i === activePhase;
 
-                <div
-                  style={{
-                    ...cardStyle,
-                    opacity: isActive ? 1 : 0.25,
-                    borderColor: isCurrent ? 'var(--brand)' : 'transparent',
-                  }}
-                >
-                  <span
+              return (
+                <div key={phase.number} style={cardStyle}>
+                  <div
                     style={{
-                      ...numberStyle,
-                      color: isActive ? 'var(--brand)' : 'rgba(255,255,255,0.2)',
+                      ...imageStyle,
+                      opacity: isActive ? 1 : 0.4,
+                      transform: isActive ? 'scale(1)' : 'scale(0.95)',
                     }}
+                    role="img"
+                    aria-label={phase.imageLabel}
                   >
-                    {phase.number}
-                  </span>
+                    {phase.title} photo placeholder
+                  </div>
+                  <div style={numberRowStyle}>
+                    <span
+                      style={{
+                        ...numberStyle,
+                        color: isActive ? 'var(--brand)' : 'rgba(255,255,255,0.2)',
+                      }}
+                    >
+                      {phase.number}
+                    </span>
+                  </div>
                   <h3
                     style={{
                       ...titleStyle,
@@ -133,9 +142,9 @@ export function Framework() {
                     {phase.description}
                   </p>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -185,6 +194,19 @@ const subheadStyle: React.CSSProperties = {
   color: 'rgba(255, 255, 255, 0.55)',
 };
 
+const gridWrapperStyle: React.CSSProperties = {
+  position: 'relative',
+};
+
+const lineTrackContainerStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: '126px',
+  left: '24px',
+  right: '24px',
+  height: '2px',
+  background: 'rgba(255, 255, 255, 0.1)',
+};
+
 const gridStyle: React.CSSProperties = {
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
@@ -192,35 +214,41 @@ const gridStyle: React.CSSProperties = {
   alignItems: 'start',
 };
 
-const cardWrapperStyle: React.CSSProperties = {
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'flex-start',
-};
-
-const lineTrackStyle: React.CSSProperties = {
-  position: 'absolute',
-  top: '36px',
-  left: '-50%',
-  width: '50%',
-  height: '2px',
-  background: 'rgba(255, 255, 255, 0.1)',
-  overflow: 'hidden',
-};
-
-const lineFillStyle: React.CSSProperties = {
-  width: '100%',
-  height: '100%',
-  background: 'var(--brand)',
-  transformOrigin: 'left center',
-  transition: 'transform 0.4s ease-out',
-};
-
 const cardStyle: React.CSSProperties = {
   padding: '0 16px',
   transition: 'opacity 0.4s ease-out, border-color 0.3s ease',
   borderTop: '2px solid transparent',
   paddingTop: '20px',
+};
+
+const lineFillStyle: React.CSSProperties = {
+  height: '100%',
+  background: 'var(--brand)',
+  transition: 'width 0.4s ease-out',
+};
+
+const numberRowStyle: React.CSSProperties = {
+  position: 'relative',
+  zIndex: 1,
+};
+
+const imageStyle: React.CSSProperties = {
+  width: '100%',
+  height: '100px',
+  background: 'rgba(255, 255, 255, 0.05)',
+  border: '1px dashed rgba(255, 255, 255, 0.2)',
+  borderRadius: '6px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '16px',
+  textAlign: 'center',
+  color: 'rgba(255, 255, 255, 0.35)',
+  fontFamily: 'var(--font-body)',
+  fontSize: 'var(--text-caption)',
+  lineHeight: 1.4,
+  marginBottom: '16px',
+  transition: 'opacity 0.4s ease-out, transform 0.4s ease-out',
 };
 
 const numberStyle: React.CSSProperties = {
