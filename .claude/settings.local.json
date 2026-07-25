@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node scripts/fetch-pexels-images.js:*)",
+      "Bash(PEXELS_API_KEY=PUBxWWZEC4Aq4KgizuQ49sBUq7ClzyIIxZKHucCyPQYDVXmQr5GfJE32 node:*)"
+    ]
+  }
+}

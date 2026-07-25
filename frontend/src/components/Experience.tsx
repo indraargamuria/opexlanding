@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { PlaceholderImage } from './PlaceholderImage';
 
 const projects = [
   {
@@ -9,6 +8,8 @@ const projects = [
     challenge: 'High defect rate on assembly line causing 12% rework costs and delayed shipments to OEM customers.',
     approach: 'Full DMAIC cycle — value stream mapping, root cause analysis with fishbone and 5-Why, then targeted IoT sensors for real-time defect tracking.',
     outcome: 'Defect rate reduced from 4.2% to 0.8% within 6 months. Rework cost savings of USD 340K annually.',
+    photo: '/images/experience-automotive.jpg',
+    photoAlt: 'Automotive assembly line factory',
   },
   {
     client: 'FMCG Conglomerate',
@@ -17,6 +18,8 @@ const projects = [
     challenge: 'Fragmented production data across 3 factories making it impossible to benchmark OEE or allocate resources efficiently.',
     approach: 'Unified MES integration across all 3 sites with a central analytics dashboard. Brand-agnostic stack built on existing SCADA infrastructure.',
     outcome: 'OEE visibility improved from near-zero to 92% data coverage. Cross-factory benchmarking enabled, yielding 8% throughput gain in Year 1.',
+    photo: '/images/experience-fmcg.jpg',
+    photoAlt: 'Consumer goods factory production line',
   },
   {
     client: 'Heavy Industry Conglomerate',
@@ -25,6 +28,8 @@ const projects = [
     challenge: 'Lean training stuck in classroom mode — low adoption on shop floor, no measurable behavioral change after certification.',
     approach: 'Redesigned Black Belt program with embedded Gemba walks, floor-based projects tied to real KPIs, and 90-day post-training coaching.',
     outcome: 'Project completion rate jumped from 35% to 88%. Certified practitioners delivered measurable cost savings averaging USD 120K per project.',
+    photo: '/images/experience-heavy.jpg',
+    photoAlt: 'Heavy industry factory workers',
   },
   {
     client: 'Regional Food Producer',
@@ -33,6 +38,8 @@ const projects = [
     challenge: 'Batch yield inconsistency across production lines leading to material waste and unpredictable output schedules.',
     approach: 'Lean Six Sigma analysis of critical process parameters, followed by sensor-based monitoring and SPC dashboards for line supervisors.',
     outcome: 'Batch yield variance cut by 62%. Material waste reduction saved USD 210K annually with payback in under 8 months.',
+    photo: '/images/experience-food.jpg',
+    photoAlt: 'Food beverage factory production',
   },
 ];
 
@@ -190,9 +197,10 @@ export function Experience() {
             >
               {i % 2 !== 0 && (
                 <div style={photoFirstStyle}>
-                  <PlaceholderImage
-                    label={`Project — ${project.client}`}
-                    height="280px"
+                  <img
+                    src={project.photo}
+                    alt={project.photoAlt}
+                    style={projectPhotoStyle}
                   />
                 </div>
               )}
@@ -221,9 +229,10 @@ export function Experience() {
 
               {i % 2 === 0 && (
                 <div style={photoSecondStyle}>
-                  <PlaceholderImage
-                    label={`Project — ${project.client}`}
-                    height="280px"
+                  <img
+                    src={project.photo}
+                    alt={project.photoAlt}
+                    style={projectPhotoStyle}
                   />
                 </div>
               )}
@@ -298,6 +307,13 @@ const photoFirstStyle: React.CSSProperties = {
 };
 
 const photoSecondStyle: React.CSSProperties = {};
+
+const projectPhotoStyle: React.CSSProperties = {
+  width: '100%',
+  height: '280px',
+  objectFit: 'cover',
+  borderRadius: '6px',
+};
 
 const infoStyle: React.CSSProperties = {
   display: 'flex',

@@ -29,10 +29,10 @@ export function Hero() {
         <div style={imageWrapStyle} className="hero-fade-in hero-delay-2">
           <div style={imageAnimationWrapperStyle}>
             <div className="hero-ken-burns">
-              
-              <PlaceholderImage
-                label="Hero — founder/consultant in working session"
-                height="400px"
+              <img
+                src="/images/hero.jpg"
+                alt="Factory manager and engineer in working session"
+                style={heroImageStyle}
               />
             </div>
           </div>
@@ -111,4 +111,11 @@ const bodyStyle: React.CSSProperties = {
 
 const imageWrapStyle: React.CSSProperties = {
   width: '100%',
+};
+
+const heroImageStyle: React.CSSProperties = {
+  width: '100%',
+  height: '400px',
+  objectFit: 'cover',
+  display: 'block',
 };

@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Framework } from './components/Framework';
 import { WhatWeDo } from './components/WhatWeDo';
-import { TechnologyPartners } from './components/TechnologyPartners';
+// import { TechnologyPartners } from './components/TechnologyPartners';
 import { Founders } from './components/Founders';
 import { Experience } from './components/Experience';
 import { Clients } from './components/Clients';
@@ -41,7 +41,7 @@ function LandingPage() {
         <Framework />
       </div>
       <WhatWeDo />
-      <TechnologyPartners />
+      {/* <TechnologyPartners /> */}
       <Founders />
       <Experience />
       <Clients />

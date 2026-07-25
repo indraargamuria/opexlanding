@@ -5,25 +5,29 @@ const phases = [
     number: '01',
     title: 'Assessment',
     description: 'Map your current state, quantify waste, and identify the highest-impact improvement opportunities across people, process, and technology.',
-    imageLabel: 'Assessment — gemba walk photo placeholder',
+    imageSrc: '/images/framework-assessment.jpg',
+    imageAlt: 'Factory floor walkthrough audit',
   },
   {
     number: '02',
     title: 'Improvement',
     description: 'Apply Lean Six Sigma methodology to eliminate root causes, streamline workflows, and build a culture of continuous improvement.',
-    imageLabel: 'Improvement — workshop session photo placeholder',
+    imageSrc: '/images/framework-improvement.jpg',
+    imageAlt: 'Workshop whiteboard team meeting',
   },
   {
     number: '03',
     title: 'Solutioning',
     description: 'Select and design the best-fit Industry 4.0 tools for your floor — brand-agnostic, vendor-neutral, matched to your real constraints.',
-    imageLabel: 'Solutioning — system design photo placeholder',
+    imageSrc: '/images/framework-solutioning.jpg',
+    imageAlt: 'Engineers system design meeting',
   },
   {
     number: '04',
     title: 'Implementation',
     description: 'Deploy, train, and sustain. We stay through the transition to ensure adoption sticks and measurable results compound.',
-    imageLabel: 'Implementation — go-live support photo placeholder',
+    imageSrc: '/images/framework-implementation.jpg',
+    imageAlt: 'Factory training floor session',
   },
 ];
 
@@ -106,14 +110,16 @@ export function Framework() {
                 <div key={phase.number} style={cardStyle}>
                   <div
                     style={{
-                      ...imageStyle,
+                      ...imageWrapperStyle,
                       opacity: isActive ? 1 : 0.4,
                       transform: isActive ? 'scale(1)' : 'scale(0.95)',
                     }}
-                    role="img"
-                    aria-label={phase.imageLabel}
                   >
-                    {phase.title} photo placeholder
+                    <img
+                      src={phase.imageSrc}
+                      alt={phase.imageAlt}
+                      style={imageStyle}
+                    />
                   </div>
                   <div style={numberRowStyle}>
                     <span
@@ -232,23 +238,20 @@ const numberRowStyle: React.CSSProperties = {
   zIndex: 1,
 };
 
-const imageStyle: React.CSSProperties = {
+const imageWrapperStyle: React.CSSProperties = {
   width: '100%',
   height: '100px',
-  background: 'rgba(255, 255, 255, 0.05)',
-  border: '1px dashed rgba(255, 255, 255, 0.2)',
   borderRadius: '6px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: '16px',
-  textAlign: 'center',
-  color: 'rgba(255, 255, 255, 0.35)',
-  fontFamily: 'var(--font-body)',
-  fontSize: 'var(--text-caption)',
-  lineHeight: 1.4,
+  overflow: 'hidden',
   marginBottom: '16px',
   transition: 'opacity 0.4s ease-out, transform 0.4s ease-out',
+};
+
+const imageStyle: React.CSSProperties = {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  display: 'block',
 };
 
 const numberStyle: React.CSSProperties = {

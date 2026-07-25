@@ -1,18 +1,60 @@
-import { PlaceholderImage } from './PlaceholderImage';
+import { useState } from 'react';
 
 const clients = [
-  { name: 'Toyota', sector: 'Automotive' },
-  { name: 'Freyabadi', sector: 'Food & Beverage' },
-  { name: 'Astra International', sector: 'Manufacturing' },
-  { name: 'Sime Darby', sector: 'Plantation & Industrials' },
-  { name: 'Petronas', sector: 'Energy' },
-  { name: 'Wilmar International', sector: 'Agribusiness' },
-  { name: 'IOI Corporation', sector: 'Plantation' },
-  { name: 'Tops Safety Wear', sector: 'Industrial Safety' },
+  { name: 'Toyota', slug: 'toyota', sector: 'Automotive' },
+  { name: 'Freyabadi', slug: 'freabadi', sector: 'Food & Beverage' },
+  { name: 'Astra International', slug: 'astra', sector: 'Manufacturing' },
+  { name: 'Sime Darby', slug: 'simedarby', sector: 'Plantation & Industrials' },
+  { name: 'Petronas', slug: 'petronas', sector: 'Energy' },
+  { name: 'Wilmar International', slug: 'wilmar', sector: 'Agribusiness' },
+  { name: 'IOI Corporation', slug: 'ioi', sector: 'Plantation' },
+  { name: 'Tops Safety Wear', slug: 'tops', sector: 'Industrial Safety' },
 ];
 
 // Duplicate the client list for seamless looping
 const marqueeClients = [...clients, ...clients];
+
+// Function to determine badge color based on name
+function getBadgeColor(name: string): string {
+  const colors = ['var(--brand)', 'var(--dark-accent)', 'var(--muted)', 'var(--border)'];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return colors[Math.abs(hash) % colors.length];
+}
+
+// Text Badge Component (fallback)
+function ClientBadge({ name }: { name: string }) {
+  const badgeColor = getBadgeColor(name);
+
+  return (
+    <div style={{
+      ...badgeStyle,
+      background: badgeColor,
+    }}>
+      {name}
+    </div>
+  );
+}
+
+// Logo Component that tries simpleicons, falls back to text badge
+function ClientLogo({ client }: { client: { name: string; slug: string } }) {
+  const [imageError, setImageError] = useState(false);
+
+  if (imageError) {
+    return <ClientBadge name={client.name} />;
+  }
+
+  return (
+    <img
+      src={`https://cdn.simpleicons.org/${client.slug}`}
+      alt={`${client.name} logo`}
+      style={logoImageStyle}
+      onError={() => setImageError(true)}
+    />
+  );
+}
 
 export function Clients() {
   return (
@@ -28,10 +70,7 @@ export function Clients() {
                 style={logoItemStyle}
                 className="client-logo-item"
               >
-                <PlaceholderImage
-                  label={`Client logo — ${client.name}`}
-                  height="48px"
-                />
+                <ClientLogo client={client} />
               </div>
             ))}
           </div>
@@ -72,10 +111,31 @@ const marqueeTrackStyle: React.CSSProperties = {
 };
 
 const logoItemStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minWidth: '140px',
   opacity: 0.6,
   transition: 'opacity 0.2s ease',
 };
 
 const logoItemHoverStyle: React.CSSProperties = {
   opacity: 1,
+};
+
+const logoImageStyle: React.CSSProperties = {
+  maxWidth: '120px',
+  maxHeight: '48px',
+  objectFit: 'contain',
+};
+
+const badgeStyle: React.CSSProperties = {
+  padding: '8px 16px',
+  borderRadius: '20px',
+  fontFamily: 'var(--font-body)',
+  fontSize: 'var(--text-caption)',
+  fontWeight: 500,
+  color: 'var(--white)',
+  textAlign: 'center',
+  whiteSpace: 'nowrap',
 };

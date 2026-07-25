@@ -1,0 +1,130 @@
+[
+  {
+    "name": "hero",
+    "filename": "hero.jpg",
+    "originalUrl": "https://images.pexels.com/photos/36122947/pexels-photo-36122947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "James Richardson",
+    "photographerUrl": "https://www.pexels.com/@james-richardson-2159544295",
+    "success": true
+  },
+  {
+    "name": "framework-assessment",
+    "filename": "framework-assessment.jpg",
+    "originalUrl": "https://images.pexels.com/photos/34718930/pexels-photo-34718930.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Yetkin Ağaç",
+    "photographerUrl": "https://www.pexels.com/@yetkin-agac-664866326",
+    "success": true
+  },
+  {
+    "name": "framework-improvement",
+    "filename": "framework-improvement.jpg",
+    "originalUrl": "https://images.pexels.com/photos/5324985/pexels-photo-5324985.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Anna Shvets",
+    "photographerUrl": "https://www.pexels.com/@shvetsa",
+    "success": true
+  },
+  {
+    "name": "framework-solutioning",
+    "filename": "framework-solutioning.jpg",
+    "originalUrl": "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Christina Morillo",
+    "photographerUrl": "https://www.pexels.com/@divinetechygirl",
+    "success": true
+  },
+  {
+    "name": "framework-implementation",
+    "filename": "framework-implementation.jpg",
+    "originalUrl": "https://images.pexels.com/photos/35082108/pexels-photo-35082108.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Safi Erneste",
+    "photographerUrl": "https://www.pexels.com/@safi-erneste-165511538",
+    "success": true
+  },
+  {
+    "name": "tech-stack",
+    "filename": "tech-stack.jpg",
+    "originalUrl": "https://images.pexels.com/photos/30547573/pexels-photo-30547573.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Pachon in Motion",
+    "photographerUrl": "https://www.pexels.com/@pachon-in-motion-426015731",
+    "success": true
+  },
+  {
+    "name": "experience-automotive",
+    "filename": "experience-automotive.jpg",
+    "originalUrl": "https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Hyundai Motor Group",
+    "photographerUrl": "https://www.pexels.com/@hyundaimotorgroup",
+    "success": true
+  },
+  {
+    "name": "experience-fmcg",
+    "filename": "experience-fmcg.jpg",
+    "originalUrl": "https://images.pexels.com/photos/5532718/pexels-photo-5532718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "cottonbro studio",
+    "photographerUrl": "https://www.pexels.com/@cottonbro",
+    "success": true
+  },
+  {
+    "name": "experience-heavy",
+    "filename": "experience-heavy.jpg",
+    "originalUrl": "https://images.pexels.com/photos/16368437/pexels-photo-16368437.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Marianna Zuzanna",
+    "photographerUrl": "https://www.pexels.com/@marianna-zuzanna-498248397",
+    "success": true
+  },
+  {
+    "name": "experience-food",
+    "filename": "experience-food.jpg",
+    "originalUrl": "https://images.pexels.com/photos/18631424/pexels-photo-18631424.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Vladimir Srajber",
+    "photographerUrl": "https://www.pexels.com/@vladimirsrajber",
+    "success": true
+  },
+  {
+    "name": "founder-1",
+    "filename": "founder-1.jpg",
+    "originalUrl": "https://images.pexels.com/photos/17611525/pexels-photo-17611525.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Anthony Lian",
+    "photographerUrl": "https://www.pexels.com/@anthony-lian-201793160",
+    "success": true
+  },
+  {
+    "name": "founder-2",
+    "filename": "founder-2.jpg",
+    "originalUrl": "https://images.pexels.com/photos/32845660/pexels-photo-32845660.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Sergey Sergeev",
+    "photographerUrl": "https://www.pexels.com/@sergey-sergeev-2153675005",
+    "success": true
+  },
+  {
+    "name": "founder-3",
+    "filename": "founder-3.jpg",
+    "originalUrl": "https://images.pexels.com/photos/8428094/pexels-photo-8428094.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Kampus Production",
+    "photographerUrl": "https://www.pexels.com/@kampus",
+    "success": true
+  },
+  {
+    "name": "dashboard-1",
+    "filename": "dashboard-1.jpg",
+    "originalUrl": "https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Lukas Blazek",
+    "photographerUrl": "https://www.pexels.com/@goumbik",
+    "success": true
+  },
+  {
+    "name": "dashboard-2",
+    "filename": "dashboard-2.jpg",
+    "originalUrl": "https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Negative Space",
+    "photographerUrl": "https://www.pexels.com/@negativespace",
+    "success": true
+  },
+  {
+    "name": "dashboard-3",
+    "filename": "dashboard-3.jpg",
+    "originalUrl": "https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "photographer": "Negative Space",
+    "photographerUrl": "https://www.pexels.com/@negativespace",
+    "success": true
+  }
+]

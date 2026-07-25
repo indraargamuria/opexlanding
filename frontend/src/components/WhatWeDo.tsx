@@ -1,18 +1,129 @@
-import { PlaceholderImage } from './PlaceholderImage';
-
 const consultancyCapabilities = [
-  { name: 'Business Process Re-engineering', detail: 'Map, measure, redesign core workflows for throughput and quality.' },
-  { name: 'Lean Six Sigma Training', detail: 'Green Belt, Black Belt, and organizational capability building.' },
-  { name: 'Value Stream Mapping', detail: 'End-to-end flow analysis to find where time and value are lost.' },
-  { name: 'Operational Excellence', detail: 'Sustained continuous improvement programs rooted in DMAIC.' },
+  { name: 'Business Process Re-engineering', detail: 'Map, measure, redesign core workflows for throughput and quality.', icon: 'BPR' },
+  { name: 'Lean Six Sigma Training', detail: 'Green Belt, Black Belt, and organizational capability building.', icon: 'Training' },
+  { name: 'Value Stream Mapping', detail: 'End-to-end flow analysis to find where time and value are lost.', icon: 'VSM' },
+  { name: 'Operational Excellence', detail: 'Sustained continuous improvement programs rooted in DMAIC.', icon: 'OpEx' },
 ];
 
 const technologyCapabilities = [
-  { name: 'IoT & Shop-Floor Sensing', detail: 'Real-time data capture from machines, lines, and processes.' },
-  { name: 'MES & ERP Integration', detail: 'Connect your execution layer to your planning layer, brand-agnostic.' },
-  { name: 'Analytics & Dashboards', detail: 'Actionable visibility for operators, supervisors, and leadership.' },
-  { name: 'Digital Twin & Simulation', detail: 'Model changes before committing capital to the floor.' },
+  { name: 'IoT & Shop-Floor Sensing', detail: 'Real-time data capture from machines, lines, and processes.', icon: 'IoT' },
+  { name: 'MES & ERP Integration', detail: 'Connect your execution layer to your planning layer, brand-agnostic.', icon: 'MES' },
+  { name: 'Analytics & Dashboards', detail: 'Actionable visibility for operators, supervisors, and leadership.', icon: 'Analytics' },
+  { name: 'Digital Twin & Simulation', detail: 'Model changes before committing capital to the floor.', icon: 'DigitalTwin' },
 ];
+
+// Simple SVG icons for each capability
+const Icons = {
+  BPR: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 12h32M8 24h24M8 36h16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="36" cy="24" r="4" fill="currentColor"/>
+    </svg>
+  ),
+  Training: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 38v-8c0-1.1.9-2 2-2h20c1.1 0 2 .9 2 2v8M24 4v16M18 12l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  VSM: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 12h36M6 24h28M6 36h20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="12" cy="12" r="3" fill="currentColor"/>
+      <circle cx="20" cy="24" r="3" fill="currentColor"/>
+      <circle cx="28" cy="36" r="3" fill="currentColor"/>
+    </svg>
+  ),
+  OpEx: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 4L4 16v20l20 12 20-12V16L24 4z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M24 4v40M4 16h40" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  ),
+  IoT: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="6" stroke="currentColor" strokeWidth="2.5"/>
+      <path d="M24 6v6M24 36v6M6 24h6M36 24h6M12 12l4 4M32 32l4 4M12 36l4-4M32 16l4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  MES: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="8" width="16" height="32" rx="2" stroke="currentColor" strokeWidth="2.5"/>
+      <rect x="28" y="8" width="16" height="32" rx="2" stroke="currentColor" strokeWidth="2.5"/>
+      <path d="M20 24h8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  Analytics: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 38h6M18 38h4M30 38h4M42 38h-6M10 30v8M20 22v16M32 14v24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  DigitalTwin: (
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="4" width="40" height="40" rx="2" stroke="currentColor" strokeWidth="2.5"/>
+      <path d="M12 16c0-4.4 3.6-8 8-8s8 3.6 8 8M20 32c4.4 0 8-3.6 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="20" cy="16" r="3" fill="currentColor"/>
+      <circle cx="28" cy="24" r="3" fill="currentColor"/>
+    </svg>
+  ),
+};
+
+// Brand-agnostic stack SVG illustration
+function BrandAgnosticIllustration() {
+  return (
+    <svg viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '180px' }}>
+      {/* Background */}
+      <rect width="400" height="180" fill="white" rx="8"/>
+
+      {/* Title */}
+      <text x="200" y="25" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1F2937">
+        Brand-Agnostic Integration
+      </text>
+
+      {/* Your Operation - Central Node */}
+      <circle cx="200" cy="90" r="35" fill="#17A5DC" opacity="0.15"/>
+      <circle cx="200" cy="90" r="28" fill="#17A5DC"/>
+      <text x="200" y="85" textAnchor="middle" fontSize="10" fontWeight="600" fill="white">
+        Your
+      </text>
+      <text x="200" y="97" textAnchor="middle" fontSize="10" fontWeight="600" fill="white">
+        Operation
+      </text>
+
+      {/* Vendor Tool 1 - Top Left */}
+      <rect x="40" y="35" width="80" height="40" rx="4" fill="#F8FBFD" stroke="#E2E8F0" strokeWidth="1.5"/>
+      <text x="80" y="53" textAnchor="middle" fontSize="8" fill="#6B7280">Vendor Tool</text>
+      <text x="80" y="65" textAnchor="middle" fontSize="10" fontWeight="600" fill="#1F2937">ERP</text>
+      {/* Connection line */}
+      <line x1="120" y1="55" x2="172" y2="78" stroke="#17A5DC" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6"/>
+
+      {/* Vendor Tool 2 - Top Right */}
+      <rect x="280" y="35" width="80" height="40" rx="4" fill="#F8FBFD" stroke="#E2E8F0" strokeWidth="1.5"/>
+      <text x="320" y="53" textAnchor="middle" fontSize="8" fill="#6B7280">Vendor Tool</text>
+      <text x="320" y="65" textAnchor="middle" fontSize="10" fontWeight="600" fill="#1F2937">MES</text>
+      {/* Connection line */}
+      <line x1="280" y1="55" x2="228" y2="78" stroke="#17A5DC" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6"/>
+
+      {/* Vendor Tool 3 - Bottom Left */}
+      <rect x="40" y="105" width="80" height="40" rx="4" fill="#F8FBFD" stroke="#E2E8F0" strokeWidth="1.5"/>
+      <text x="80" y="123" textAnchor="middle" fontSize="8" fill="#6B7280">Vendor Tool</text>
+      <text x="80" y="135" textAnchor="middle" fontSize="10" fontWeight="600" fill="#1F2937">IoT</text>
+      {/* Connection line */}
+      <line x1="120" y1="125" x2="172" y2="102" stroke="#17A5DC" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6"/>
+
+      {/* Vendor Tool 4 - Bottom Right */}
+      <rect x="280" y="105" width="80" height="40" rx="4" fill="#F8FBFD" stroke="#E2E8F0" strokeWidth="1.5"/>
+      <text x="320" y="123" textAnchor="middle" fontSize="8" fill="#6B7280">Vendor Tool</text>
+      <text x="320" y="135" textAnchor="middle" fontSize="10" fontWeight="600" fill="#1F2937">Analytics</text>
+      {/* Connection line */}
+      <line x1="280" y1="125" x2="228" y2="102" stroke="#17A5DC" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6"/>
+
+      {/* OpexCG Label */}
+      <text x="200" y="165" textAnchor="middle" fontSize="11" fontWeight="600" fill="#0F4664">
+        OpexCG connects them all
+      </text>
+    </svg>
+  );
+}
 
 export function WhatWeDo() {
   return (
@@ -31,10 +142,7 @@ export function WhatWeDo() {
             your floor, not what fills a vendor quota.
           </p>
           <div style={illustrationWrapperStyle}>
-            <PlaceholderImage
-              label="Brand-agnostic stack illustration — OpexCG between multiple vendor tools"
-              height="180px"
-            />
+            <BrandAgnosticIllustration />
           </div>
         </div>
 
@@ -46,11 +154,9 @@ export function WhatWeDo() {
                 {consultancyCapabilities.map((cap) => (
                   <li key={cap.name} style={listItemStyle}>
                     <div style={iconWrapperStyle}>
-                      <PlaceholderImage
-                        label={`Icon placeholder — ${cap.name}`}
-                        width="48px"
-                        height="48px"
-                      />
+                      <div style={iconBoxStyle} className="what-we-do-icon">
+                        {Icons[cap.icon]}
+                      </div>
                     </div>
                     <div style={textContentStyle}>
                       <span style={capNameStyle}>{cap.name}</span>
@@ -69,11 +175,9 @@ export function WhatWeDo() {
                 {technologyCapabilities.map((cap) => (
                   <li key={cap.name} style={listItemStyle}>
                     <div style={iconWrapperStyle}>
-                      <PlaceholderImage
-                        label={`Icon placeholder — ${cap.name}`}
-                        width="48px"
-                        height="48px"
-                      />
+                      <div style={iconBoxStyle} className="what-we-do-icon">
+                        {Icons[cap.icon]}
+                      </div>
                     </div>
                     <div style={textContentStyle}>
                       <span style={capNameStyle}>{cap.name}</span>
@@ -196,6 +300,17 @@ const listItemStyle: React.CSSProperties = {
 
 const iconWrapperStyle: React.CSSProperties = {
   flexShrink: 0,
+};
+
+const iconBoxStyle: React.CSSProperties = {
+  width: '48px',
+  height: '48px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'var(--brand)',
+  background: 'rgba(23, 165, 220, 0.08)',
+  borderRadius: '8px',
 };
 
 const textContentStyle: React.CSSProperties = {

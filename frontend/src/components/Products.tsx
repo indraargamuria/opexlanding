@@ -2,20 +2,26 @@ import { useEffect, useRef, useState } from 'react';
 
 const products = [
   {
+    name: 'OpexAI',
+    description: 'AI-powered process optimization and predictive analytics for manufacturing operations.',
+    image: '/images/dashboard-1.jpg',
+    imageAlt: 'AI-powered analytics dashboard',
+  },
+  {
+    name: 'ProfetAI',
+    description: 'Machine learning solutions for demand forecasting and production planning optimization.',
+    image: '/images/dashboard-2.jpg',
+    imageAlt: 'ML forecasting dashboard',
+  },
+  {
     name: 'OpexMX',
-    description: 'AI-enabled manufacturing execution — real-time visibility, predictive scheduling, and adaptive workflow management.',
-  },
-  {
-    name: 'OpexDX',
-    description: 'Digital transformation readiness assessment — benchmark your Industry 4.0 maturity and map the path forward.',
-  },
-  {
-    name: 'OpexIQ',
-    description: 'Shop-floor analytics and dashboarding — turn raw machine data into actionable insight for operators and leadership.',
+    description: 'Manufacturing execution system with real-time visibility and adaptive workflow management.',
+    image: '/images/dashboard-3.jpg',
+    imageAlt: 'Manufacturing execution dashboard',
   },
 ];
 
-function ProductMockup({ productName }: { productName: string }) {
+function ProductMockup({ productName, productImage, productAlt }: { productName: string; productImage: string; productAlt: string }) {
   return (
     <div style={mockupStyle}>
       <div style={windowChromeStyle}>
@@ -23,13 +29,11 @@ function ProductMockup({ productName }: { productName: string }) {
         <span style={dotStyle} />
         <span style={dotStyle} />
       </div>
-      <div
-        style={placeholderStyle}
-        role="img"
-        aria-label={`${productName} — product screenshot placeholder`}
-      >
-        {productName} screenshot placeholder
-      </div>
+      <img
+        src={productImage}
+        alt={productAlt}
+        style={screenshotStyle}
+      />
     </div>
   );
 }
@@ -72,7 +76,11 @@ export function Products() {
                 transitionDelay: `${index * 0.1}s`,
               }}
             >
-              <ProductMockup productName={product.name} />
+              <ProductMockup
+                productName={product.name}
+                productImage={product.image}
+                productAlt={product.imageAlt}
+              />
               <h3 style={nameStyle}>{product.name}</h3>
               <p style={descStyle}>{product.description}</p>
               <a href="#" style={linkStyle}>
@@ -170,6 +178,13 @@ const placeholderStyle: React.CSSProperties = {
   border: '1px dashed rgba(255, 255, 255, 0.2)',
   margin: '8px',
   borderRadius: '4px',
+};
+
+const screenshotStyle: React.CSSProperties = {
+  width: '100%',
+  height: '120px',
+  objectFit: 'cover',
+  display: 'block',
 };
 
 const nameStyle: React.CSSProperties = {

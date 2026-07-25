@@ -6,18 +6,24 @@ const founders = [
     title: 'Founder & Principal Consultant',
     bio: 'Over 20 years driving operational excellence across Southeast Asian manufacturing. Certified Lean Six Sigma Black Belt with deep experience in automotive, FMCG, and heavy industry.',
     pullQuote: 'Founded OpexCG to bridge the gap between methodology and technology on the factory floor.',
+    photo: '/images/founder-1.jpg',
+    photoAlt: 'Asian businessman in industrial context',
   },
   {
     name: 'Pak Theam Wah',
     title: 'Co-Founder & Technology Director',
     bio: 'Background in industrial automation and systems integration across Singapore and Malaysia. Leads OpexCG\'s brand-agnostic technology practice.',
     pullQuote: 'Evaluating, selecting, and integrating the right Industry 4.0 tools for each client\'s unique operational context.',
+    photo: '/images/founder-2.jpg',
+    photoAlt: 'Engineer manager in factory setting',
   },
   {
     name: 'Pak Raj',
     title: 'Co-Founder & Senior Consultant',
     bio: 'Specialist in training and organizational capability building. Has led Lean Six Sigma certification programs for teams across Indonesia and Malaysia.',
     pullQuote: 'Turning methodology into everyday practice on production floors.',
+    photo: '/images/founder-3.jpg',
+    photoAlt: 'Consultant professional in industry',
   },
 ];
 
@@ -26,7 +32,7 @@ export function Founders() {
     <section style={sectionStyle} id="founders">
       <div style={innerStyle}>
         <div style={headerStyle}>
-          <p style={overlineStyle}>Our people</p>
+          <p style={overlineStyle}>Our Founders</p>
           <h2 style={headingStyle}>The team behind the framework</h2>
         </div>
 
@@ -37,9 +43,11 @@ export function Founders() {
               return (
                 <article key={founder.name} style={profileStyle}>
                   <div style={photoSideStyle}>
-                    <PlaceholderImage
-                      label={`Founder — ${founder.name}, working session photo`}
-                      height="320px"
+                    {/* TEMP: stock photo placeholder, must be replaced with real founder photo before public launch */}
+                    <img
+                      src={founder.photo}
+                      alt={founder.photoAlt}
+                      style={photoStyle}
                     />
                   </div>
                   <div style={infoSideStyle}>
@@ -63,9 +71,11 @@ export function Founders() {
                     <p style={bioStyle}>{founder.bio}</p>
                   </div>
                   <div style={photoSideStyle}>
-                    <PlaceholderImage
-                      label={`Founder — ${founder.name}, working session photo`}
-                      height="320px"
+                    {/* TEMP: stock photo placeholder, must be replaced with real founder photo before public launch */}
+                    <img
+                      src={founder.photo}
+                      alt={founder.photoAlt}
+                      style={photoStyle}
                     />
                   </div>
                 </article>
@@ -76,9 +86,11 @@ export function Founders() {
             return (
               <article key={founder.name} style={centeredProfileStyle}>
                 <div style={centeredPhotoWrapperStyle}>
-                  <PlaceholderImage
-                    label={`Founder — ${founder.name}, working session photo`}
-                    height="280px"
+                  {/* TEMP: stock photo placeholder, must be replaced with real founder photo before public launch */}
+                  <img
+                    src={founder.photo}
+                    alt={founder.photoAlt}
+                    style={centeredPhotoStyle}
                   />
                 </div>
                 <div style={centeredInfoStyle}>
@@ -160,6 +172,20 @@ const centeredPhotoWrapperStyle: React.CSSProperties = {
 
 const photoSideStyle: React.CSSProperties = {
   width: '100%',
+};
+
+const photoStyle: React.CSSProperties = {
+  width: '100%',
+  height: '320px',
+  objectFit: 'cover',
+  borderRadius: '6px',
+};
+
+const centeredPhotoStyle: React.CSSProperties = {
+  width: '100%',
+  height: '280px',
+  objectFit: 'cover',
+  borderRadius: '6px',
 };
 
 const infoSideStyle: React.CSSProperties = {
