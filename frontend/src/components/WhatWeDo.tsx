@@ -1,3 +1,5 @@
+import { PlaceholderImage } from './PlaceholderImage';
+
 const consultancyCapabilities = [
   { name: 'Business Process Re-engineering', detail: 'Map, measure, redesign core workflows for throughput and quality.' },
   { name: 'Lean Six Sigma Training', detail: 'Green Belt, Black Belt, and organizational capability building.' },
@@ -28,33 +30,59 @@ export function WhatWeDo() {
             people to run them. Brand-agnostic by design — we pick what fits
             your floor, not what fills a vendor quota.
           </p>
+          <div style={illustrationWrapperStyle}>
+            <PlaceholderImage
+              label="Brand-agnostic stack illustration — OpexCG between multiple vendor tools"
+              height="180px"
+            />
+          </div>
         </div>
 
         <div style={rightStyle}>
-          <div style={columnStyle}>
-            <h3 style={columnHeadingStyle}>Consultancy</h3>
-            <ul style={listStyle}>
-              {consultancyCapabilities.map((cap) => (
-                <li key={cap.name} style={listItemStyle}>
-                  <span style={capNameStyle}>{cap.name}</span>
-                  <span style={capDetailStyle}>{cap.detail}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div style={columnGroupStyle}>
+            <div style={columnStyleLeft}>
+              <h3 style={columnHeadingStyle}>Consultancy</h3>
+              <ul style={listStyle}>
+                {consultancyCapabilities.map((cap) => (
+                  <li key={cap.name} style={listItemStyle}>
+                    <div style={iconWrapperStyle}>
+                      <PlaceholderImage
+                        label={`Icon placeholder — ${cap.name}`}
+                        width="48px"
+                        height="48px"
+                      />
+                    </div>
+                    <div style={textContentStyle}>
+                      <span style={capNameStyle}>{cap.name}</span>
+                      <span style={capDetailStyle}>{cap.detail}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div style={dividerStyle} />
+            <div style={verticalDividerStyle} />
 
-          <div style={columnStyle}>
-            <h3 style={columnHeadingStyle}>Technology</h3>
-            <ul style={listStyle}>
-              {technologyCapabilities.map((cap) => (
-                <li key={cap.name} style={listItemStyle}>
-                  <span style={capNameStyle}>{cap.name}</span>
-                  <span style={capDetailStyle}>{cap.detail}</span>
-                </li>
-              ))}
-            </ul>
+            <div style={columnStyleRight}>
+              <h3 style={columnHeadingStyle}>Technology</h3>
+              <ul style={listStyle}>
+                {technologyCapabilities.map((cap) => (
+                  <li key={cap.name} style={listItemStyle}>
+                    <div style={iconWrapperStyle}>
+                      <PlaceholderImage
+                        label={`Icon placeholder — ${cap.name}`}
+                        width="48px"
+                        height="48px"
+                      />
+                    </div>
+                    <div style={textContentStyle}>
+                      <span style={capNameStyle}>{cap.name}</span>
+                      <span style={capDetailStyle}>{cap.detail}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -107,14 +135,40 @@ const leadStyle: React.CSSProperties = {
   maxWidth: '480px',
 };
 
+const illustrationWrapperStyle: React.CSSProperties = {
+  marginTop: '24px',
+  width: '100%',
+  maxWidth: '420px',
+};
+
 const rightStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   gap: '0',
 };
 
+const columnGroupStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '0',
+  alignItems: 'stretch',
+};
+
 const columnStyle: React.CSSProperties = {
-  padding: '32px 0',
+  flex: 1,
+  padding: '32px 24px',
+};
+
+const columnStyleLeft: React.CSSProperties = {
+  ...columnStyle,
+  background: 'rgba(255, 255, 255, 0.5)',
+  borderRadius: '8px 0 0 8px',
+};
+
+const columnStyleRight: React.CSSProperties = {
+  ...columnStyle,
+  background: 'rgba(255, 255, 255, 0.3)',
+  borderRadius: '0 8px 8px 0',
 };
 
 const columnHeadingStyle: React.CSSProperties = {
@@ -135,8 +189,26 @@ const listStyle: React.CSSProperties = {
 
 const listItemStyle: React.CSSProperties = {
   display: 'flex',
+  flexDirection: 'row',
+  gap: '12px',
+  alignItems: 'flex-start',
+};
+
+const iconWrapperStyle: React.CSSProperties = {
+  flexShrink: 0,
+};
+
+const textContentStyle: React.CSSProperties = {
+  display: 'flex',
   flexDirection: 'column',
   gap: '4px',
+  flex: 1,
+};
+
+const verticalDividerStyle: React.CSSProperties = {
+  width: '1px',
+  background: 'var(--border)',
+  margin: '32px 0',
 };
 
 const capNameStyle: React.CSSProperties = {
@@ -150,9 +222,4 @@ const capDetailStyle: React.CSSProperties = {
   fontSize: 'var(--text-caption)',
   lineHeight: 1.5,
   color: 'var(--muted)',
-};
-
-const dividerStyle: React.CSSProperties = {
-  height: '1px',
-  background: 'var(--border)',
 };
