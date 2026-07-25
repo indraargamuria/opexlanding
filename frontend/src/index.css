@@ -251,3 +251,31 @@ img {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
 }
+
+/* ── Client marquee ── */
+@keyframes client-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.client-marquee-track {
+  animation: client-marquee-scroll 35s linear infinite;
+}
+
+.client-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.client-logo-item:hover {
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee-track {
+    animation: none;
+  }
+}

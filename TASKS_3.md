@@ -241,7 +241,33 @@ Convert this into a continuously auto-scrolling horizontal marquee:
 4. Keep the section heading and background exactly as they are — only the
    logo row itself changes from a static grid to the marquee.
 ```
+Find the "Experience" / "Proven results across the floor" section — 4
+project articles (Automotive Parts Manufacturer, FMCG Conglomerate, Heavy
+Industry Conglomerate, Regional Food Producer), each with a Challenge /
+Approach / Outcome structure, aria-labels like "Project — [name]", and a
+placeholder photo per project. This section is already working well —
+these are additive polish changes only, don't restructure the existing
+card layout.
 
+1. Count-up animation: each project's "Outcome" line contains a quantified
+   result (e.g. "Defect rate reduced from 4.2% to 0.8%", "USD 340K",
+   "OEE... 92%", "62%", "USD 210K"). Wherever there's a standalone number
+   in the outcome text, wrap just that number in its own element and
+   animate it counting up from 0 to its final value over about 1-1.5s,
+   triggered once via IntersectionObserver when the card scrolls into
+   view. Don't re-animate on repeat scroll past. If a number is embedded
+   in a longer sentence, only animate the numeric token itself, leave the
+   surrounding sentence static.
+2. Industry filter: above the 4 project cards, add filter tabs/pills for
+   the industries already present in the data (Automotive, Consumer Goods,
+   Manufacturing, Food & Beverage — reuse the exact category labels already
+   used in each project's eyebrow text, e.g. "Automotive · Indonesia").
+   Clicking a filter shows only matching cards (or all, for an "All"
+   default tab). Keep this simple — no animation needed on the filter
+   itself beyond a basic show/hide or fade of filtered-out cards.
+3. Leave the card visual design, image placeholders, and Challenge/
+   Approach/Outcome structure exactly as they are — this task only adds
+   the count-up behavior and the filter control, nothing else.
 ---
 
 ## After these eight

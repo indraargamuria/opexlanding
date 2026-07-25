@@ -11,21 +11,30 @@ const clients = [
   { name: 'Tops Safety Wear', sector: 'Industrial Safety' },
 ];
 
+// Duplicate the client list for seamless looping
+const marqueeClients = [...clients, ...clients];
+
 export function Clients() {
   return (
     <section style={sectionStyle}>
       <div style={innerStyle}>
         <p style={headingStyle}>Trusted by manufacturers across Southeast Asia</p>
 
-        <div style={gridStyle}>
-          {clients.map((client) => (
-            <div key={client.name} style={logoItemStyle}>
-              <PlaceholderImage
-                label={`Client logo — ${client.name}`}
-                height="48px"
-              />
-            </div>
-          ))}
+        <div style={marqueeContainerStyle}>
+          <div style={marqueeTrackStyle} className="client-marquee-track">
+            {marqueeClients.map((client, index) => (
+              <div
+                key={`${client.name}-${index}`}
+                style={logoItemStyle}
+                className="client-logo-item"
+              >
+                <PlaceholderImage
+                  label={`Client logo — ${client.name}`}
+                  height="48px"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -51,13 +60,22 @@ const headingStyle: React.CSSProperties = {
   marginBottom: '32px',
 };
 
-const gridStyle: React.CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
+const marqueeContainerStyle: React.CSSProperties = {
+  overflow: 'hidden',
+  width: '100%',
+};
+
+const marqueeTrackStyle: React.CSSProperties = {
+  display: 'flex',
   gap: '24px',
-  alignItems: 'center',
+  width: 'max-content',
 };
 
 const logoItemStyle: React.CSSProperties = {
   opacity: 0.6,
+  transition: 'opacity 0.2s ease',
+};
+
+const logoItemHoverStyle: React.CSSProperties = {
+  opacity: 1,
 };
