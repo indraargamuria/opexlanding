@@ -31,7 +31,10 @@ export function Founders() {
       <div style={innerStyle}>
         <div style={headerStyle}>
           <p style={overlineStyle}>Our Founders</p>
-          <h2 style={headingStyle}>The team behind the framework</h2>
+          {/* DRAFT COPY — needs review before launch */}
+          <h2 style={headingStyle}>
+            Operational expertise behind every technology recommendation
+          </h2>
         </div>
 
         <div style={listStyle}>

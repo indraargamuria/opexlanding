@@ -7,15 +7,12 @@ const partnerCategories = [
       { name: 'Epicor', slug: 'epicor', isOwn: false },
       { name: 'Siemens (Opcenter)', slug: 'siemens', isOwn: false },
       { name: 'OpexMX', slug: 'opexmx', isOwn: true },
-      { name: 'Largo', slug: 'largo', isOwn: false },
     ],
   },
   {
     name: 'Digitalization & Automation',
     partners: [
       { name: 'Mendix', slug: 'mendix', isOwn: false },
-      { name: 'SICK', slug: 'sick', isOwn: false },
-      { name: 'Zebra Technologies', slug: 'zebra', isOwn: false },
       { name: 'UiPath', slug: 'uipath', isOwn: false },
     ],
   },
@@ -24,15 +21,12 @@ const partnerCategories = [
     partners: [
       { name: 'Opex AI', slug: 'opexai', isOwn: true },
       { name: 'Profet AI', slug: 'profetai', isOwn: false },
-      { name: 'RapidMiner', slug: 'rapidminer', isOwn: false },
     ],
   },
   {
     name: 'Horizontal Integration',
     partners: [
       { name: 'Kinaxis', slug: 'kinaxis', isOwn: false },
-      { name: 'RELEX Solutions', slug: 'relex', isOwn: false },
-      { name: 'Geotab', slug: 'geotab', isOwn: false },
     ],
   },
 ];
@@ -103,6 +97,8 @@ export function TechnologyPartners() {
             </div>
           ))}
         </div>
+
+        <p style={moreCaptionStyle}>+ more integrations available on request</p>
       </div>
     </section>
   );
@@ -135,6 +131,16 @@ const headingStyle: React.CSSProperties = {
   lineHeight: 'var(--leading-heading)',
   color: 'var(--dark-text)',
   marginBottom: '48px',
+};
+
+const moreCaptionStyle: React.CSSProperties = {
+  marginTop: '40px',
+  fontFamily: 'var(--font-body)',
+  fontSize: 'var(--text-caption)',
+  fontWeight: 500,
+  color: 'var(--muted)',
+  letterSpacing: '0.04em',
+  textAlign: 'center',
 };
 
 const categoriesStyle: React.CSSProperties = {

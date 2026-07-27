@@ -7,15 +7,17 @@ export function Hero() {
           <p style={overlineStyle} className="hero-fade-in">
             Lean Six Sigma &middot; Industry 4.0
           </p>
+          {/* DRAFT COPY — needs review before launch */}
           <h1 style={headlineStyle} className="hero-fade-in hero-delay-1">
-            Digital transformation grounded in
-            methodology, not hype
+            Industrial technology and AI,
+            implemented by people who&rsquo;ve
+            actually run the floor
           </h1>
+          {/* DRAFT COPY — needs review before launch */}
           <p style={bodyStyle} className="hero-fade-in hero-delay-2">
-            We pair Lean Six Sigma discipline with brand-agnostic technology
-            selection — integrating the best-fit tools for your floor, not the
-            ones with the biggest marketing budget. Assessment through
-            implementation, one framework.
+            Brand-agnostic by design &mdash; we integrate the best-fit tools
+            for your floor (and build our own AI where no best-fit exists yet),
+            backed by the operational discipline to make it actually stick.
           </p>
           <div className="hero-fade-in hero-delay-3">
             <a href="#contact" className="hero-cta">

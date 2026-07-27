@@ -24,14 +24,25 @@ function getBadgeColor(name: string): string {
   return colors[Math.abs(hash) % colors.length];
 }
 
+// Size variants — 'sm' used by TrustBar, 'md' used here (default).
+export type LogoSize = 'sm' | 'md';
+
+const sizeConfigs: Record<LogoSize, { maxWidth: number; maxHeight: number; badgePadding: string; badgeFontSize: string }> = {
+  sm: { maxWidth: 88, maxHeight: 32, badgePadding: '6px 12px', badgeFontSize: '0.75rem' },
+  md: { maxWidth: 120, maxHeight: 48, badgePadding: '8px 16px', badgeFontSize: 'var(--text-caption)' },
+};
+
 // Text Badge Component (fallback)
-function ClientBadge({ name }: { name: string }) {
+function ClientBadge({ name, size = 'md' }: { name: string; size?: LogoSize }) {
   const badgeColor = getBadgeColor(name);
+  const cfg = sizeConfigs[size];
 
   return (
     <div style={{
       ...badgeStyle,
       background: badgeColor,
+      padding: cfg.badgePadding,
+      fontSize: cfg.badgeFontSize,
     }}>
       {name}
     </div>
@@ -39,18 +50,23 @@ function ClientBadge({ name }: { name: string }) {
 }
 
 // Logo Component that tries simpleicons, falls back to text badge
-function ClientLogo({ client }: { client: { name: string; slug: string } }) {
+export function ClientLogo({ client, size = 'md' }: { client: { name: string; slug: string }; size?: LogoSize }) {
   const [imageError, setImageError] = useState(false);
+  const cfg = sizeConfigs[size];
 
   if (imageError) {
-    return <ClientBadge name={client.name} />;
+    return <ClientBadge name={client.name} size={size} />;
   }
 
   return (
     <img
       src={`https://cdn.simpleicons.org/${client.slug}`}
       alt={`${client.name} logo`}
-      style={logoImageStyle}
+      style={{
+        ...logoImageStyle,
+        maxWidth: cfg.maxWidth,
+        maxHeight: cfg.maxHeight,
+      }}
       onError={() => setImageError(true)}
     />
   );
