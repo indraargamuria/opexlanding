@@ -70,7 +70,7 @@ function HomePage() {
               OpexMX Demo
             </button>
             <a
-              href="https://app.opexcg.com/assistant"
+              href="https://assistant.opexcg.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-muted border border-border text-[0.75rem] font-heading font-medium px-[18px] py-[8px] rounded-[6px] bg-transparent hover:bg-slate-100 transition-colors no-underline"
