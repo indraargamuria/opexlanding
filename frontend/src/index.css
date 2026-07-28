@@ -121,8 +121,68 @@ img { display: block; max-width: 100%; }
   }
 }
 
+/* ── Partner ticker animation ── */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-scroll 24s linear infinite;
+}
+
+/* ── Home page: mobile stacking ── */
+@media (max-width: 768px) {
+  .home-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .home-page {
+    max-width: 100% !important;
+    padding: 0 4px;
+    gap: 10px !important;
+  }
+
+  .home-left {
+    gap: 12px !important;
+  }
+
+  .home-left h1 {
+    font-size: 1.35rem !important;
+  }
+
+  .home-stats {
+    flex-wrap: wrap;
+    gap: 4px 0;
+  }
+
+  .home-ecosystem-img {
+    max-height: 180px !important;
+  }
+
+  .home-ticker {
+    gap: 12px !important;
+    padding: 6px 12px !important;
+  }
+}
+
 @media (max-width: 480px) {
   .app-footer form {
     display: none;
+  }
+
+  .home-left h1 {
+    font-size: 1.2rem !important;
+  }
+
+  .home-cta-row {
+    flex-direction: column;
+    gap: 8px !important;
+  }
+
+  .home-cta-row a {
+    justify-content: center;
+    text-align: center;
   }
 }

@@ -1,88 +1,160 @@
-import { createRoute } from '@tanstack/react-router';
+import { useState } from 'react';
+import { createRoute, Link } from '@tanstack/react-router';
 import { Route as rootRoute } from './__root';
 
+const partners = [
+  { name: 'Epicor', slug: 'epicor' },
+  { name: 'Siemens', slug: 'siemens' },
+  { name: 'Mendix', slug: 'mendix' },
+  { name: 'Zebra', slug: 'zebra' },
+  { name: 'UiPath', slug: 'uipath' },
+];
+
 function HomePage() {
+  const [activeTab, setActiveTab] = useState<'ecosystem' | 'assistant'>('ecosystem');
+
   return (
-    <div style={gridStyle}>
-      {/* Left: Value Prop */}
-      <div style={leftColStyle}>
-        <div style={heroBlockStyle}>
-          <p style={overlineStyle}>Lean Six Sigma &middot; Industry 4.0</p>
-          <h1 style={headlineStyle}>
-            Industrial technology and AI,<br />
-            implemented by people who&rsquo;ve<br />
-            actually run the floor
-          </h1>
-          <p style={subheadStyle}>
-            Brand-agnostic by design &mdash; we integrate the best-fit tools
-            for your floor, backed by the operational discipline to make it stick.
-          </p>
-          <div style={ctaRowStyle}>
-            <a href="/contact" style={ctaStyle}>
-              Talk to us
-            </a>
-            <Link to="/products" style={secondaryCtaStyle}>
-              View our products
-            </Link>
+    <div className="home-page" style={pageStyle}>
+      {/* Main 50/50 split */}
+      <div className="home-grid" style={mainGridStyle}>
+        {/* Left Canvas — Hero Copy & Micro-Stats */}
+          <div className="home-left" style={leftColStyle}>
+          <div style={badgeStyle}>
+            <span style={{ marginRight: 4 }}>&#9889;</span>
+            Lean Six Sigma &middot; Industry 4.0 Native
           </div>
+          <h1 style={headlineStyle}>
+            Industrial technology and AI, implemented by people who&rsquo;ve actually run the floor
+          </h1>
+          <div className="home-cta-row" style={ctaRowStyle}>
+            <Link to="/contact" style={ctaPrimaryStyle}>
+              Talk to us
+            </Link>
+            <a
+              href="https://app.opexcg.com/assistant"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={ctaSecondaryStyle}
+            >
+              Launch OpexAssistant
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+          <div className="home-stats" style={statsRowStyle}>
+            <div style={statItemStyle}>
+              <span style={statValueStyle}>200+</span>
+              <span style={statLabelStyle}>ISV Integrations</span>
+            </div>
+            <div style={statDividerStyle} />
+            <div style={statItemStyle}>
+              <span style={statValueStyle}>Industry 4.0</span>
+              <span style={statLabelStyle}>Ready</span>
+            </div>
+            <div style={statDividerStyle} />
+            <div style={statItemStyle}>
+              <span style={statValueStyle}>&lt;120ms</span>
+              <span style={statLabelStyle}>Sync Latency</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Canvas — Interactive Ecosystem & AI */}
+        <div style={rightColStyle}>
+          {/* Tab Controls */}
+          <div style={tabsRowStyle}>
+            <button
+              onClick={() => setActiveTab('ecosystem')}
+              style={{ ...tabBtnStyle, ...(activeTab === 'ecosystem' ? tabBtnActiveStyle : {}) }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="4" cy="12" r="1"/><circle cx="20" cy="12" r="1"/>
+              </svg>
+              Ecosystem Map
+            </button>
+            <button
+              onClick={() => setActiveTab('assistant')}
+              style={{ ...tabBtnStyle, ...(activeTab === 'assistant' ? tabBtnActiveStyle : {}) }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d="M12 2a4 4 0 0 1 4 4c0 2-2 3-2 3H8s-2-1-2-3a4 4 0 0 1 4-4Z"/><path d="M16 9v1a4 4 0 0 1-8 0V9"/><path d="M12 16v3"/><path d="M8 22h8"/>
+              </svg>
+              OpexAssistant AI Engine
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          {activeTab === 'ecosystem' ? (
+            <div style={ecosystemCardStyle}>
+              <img
+                src="/images/technology-partner.png"
+                alt="OpexDX Technology Ecosystem — brand-agnostic integration layer"
+                className="home-ecosystem-img"
+                style={ecosystemImgStyle}
+              />
+              <div style={ecosystemBannerStyle}>
+                Brand-agnostic integration layer for Siemens, Epicor, UiPath &amp; custom MES.
+              </div>
+            </div>
+          ) : (
+            <div style={assistantCardStyle}>
+              <div style={assistantHeaderStyle}>
+                <div style={assistantDotStyle} />
+                <div style={assistantDotStyle} />
+                <div style={assistantDotStyle} />
+                <span style={assistantTitleStyle}>OpexAssistant — AI Query</span>
+              </div>
+              <div style={assistantBodyStyle}>
+                <div style={assistantLabelStyle}>$ query &quot;Optimize production line throughput&quot;</div>
+                <div style={assistantOutputStyle}>
+                  <div style={outputRowStyle}>
+                    <span style={outputKeyStyle}>Root Cause</span>
+                    <span style={outputValStyle}>Bottleneck at Station #3 (cycle time +38%)</span>
+                  </div>
+                  <div style={outputRowStyle}>
+                    <span style={outputKeyStyle}>Recommendation</span>
+                    <span style={outputValStyle}>Redistribute load across Stations #2-#4</span>
+                  </div>
+                  <div style={outputRowStyle}>
+                    <span style={outputKeyStyle}>Est. Impact</span>
+                    <span style={outputValStyle}>+22% OEE &middot; 6-week payback period</span>
+                  </div>
+                </div>
+                <div style={assistantCmdStyle}>
+                  <span style={assistantCursorStyle}>&gt;</span> Generating implementation plan...
+                </div>
+              </div>
+              <a
+                href="https://app.opexcg.com/assistant"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={assistantLaunchStyle}
+              >
+                Launch OpexAssistant
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Right: Highlight Cards */}
-      <div style={rightColStyle}>
-        <Card
-          title="AI-Enabled Products"
-          icon={
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2a4 4 0 0 1 4 4c0 2-2 3-2 3H8s-2-1-2-3a4 4 0 0 1 4-4Z"/><path d="M16 9v1a4 4 0 0 1-8 0V9"/><path d="M12 16v3"/><path d="M8 22h8"/>
-            </svg>
-          }
-          body="OpexAI for predictive analytics and OpexMX for real-time MES — purpose-built tools that integrate with whatever stack you already run."
-          linkTo="/products"
-          linkLabel="Explore products"
-        />
-        <Card
-          title="Our Ecosystem"
-          icon={
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="4" cy="12" r="1"/><circle cx="20" cy="12" r="1"/>
-            </svg>
-          }
-          body="200+ ISV technology partners integrated through a vendor-neutral ecosystem. Connect MES, ERP, IoT, and analytics into one source of truth."
-          linkTo="/products"
-          linkLabel="See integration"
-        />
-        <Card
-          title="Proven Methodology"
-          icon={
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          }
-          body="Assessment &rarr; Improvement &rarr; Solutioning &rarr; Implementation. Lean Six Sigma methodology paired with measurable outcomes."
-          linkTo="/experience"
-          linkLabel="View case studies"
-        />
-      </div>
-    </div>
-  );
-}
-
-function Link({ to, children, ...props }: { to: string; children: React.ReactNode; style?: React.CSSProperties }) {
-  // Use native anchor for navigation — TanStack Router Link in-page
-  return <a href={to} {...props}>{children}</a>;
-}
-
-function Card({ title, icon, body, linkTo, linkLabel }: { title: string; icon: React.ReactNode; body: string; linkTo: string; linkLabel: string }) {
-  return (
-    <div style={cardStyle}>
-      <div style={cardIconStyle}>{icon}</div>
-      <div style={cardContentStyle}>
-        <h3 style={cardTitleStyle}>{title}</h3>
-        <p style={cardBodyStyle}>{body}</p>
-        <a href={linkTo} style={cardLinkStyle}>
-          {linkLabel} &rarr;
-        </a>
+      {/* Bottom — Enterprise Partner Ticker */}
+      <div className="home-ticker" style={tickerStyle}>
+        <span style={tickerLabelStyle}>Ecosystem</span>
+        <div className="ticker-track" style={tickerTrackStyle}>
+          {[...partners, ...partners].map((p, i) => (
+            <span key={`${p.slug}-${i}`} style={tickerLogoStyle}>
+              {p.name}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -94,138 +166,336 @@ export const Route = createRoute({
   component: HomePage,
 });
 
-const gridStyle: React.CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  gap: '32px',
+const pageStyle: React.CSSProperties = {
   height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '12px',
   maxWidth: '1200px',
   margin: '0 auto',
 };
 
+const mainGridStyle: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: '28px',
+  flex: 1,
+  minHeight: 0,
+};
+
+/* ── Left column ── */
 const leftColStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  gap: '14px',
 };
 
-const heroBlockStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '12px',
-};
-
-const overlineStyle: React.CSSProperties = {
+const badgeStyle: React.CSSProperties = {
   fontFamily: 'var(--font-body)',
   fontSize: '0.75rem',
   fontWeight: 500,
   color: 'var(--brand)',
-  letterSpacing: '0.06em',
+  letterSpacing: '0.04em',
   textTransform: 'uppercase' as const,
 };
 
 const headlineStyle: React.CSSProperties = {
   fontFamily: 'var(--font-heading)',
-  fontSize: '1.75rem',
+  fontSize: '1.625rem',
   fontWeight: 700,
-  lineHeight: 1.2,
+  lineHeight: 1.18,
   color: 'var(--dark-text)',
   letterSpacing: '-0.02em',
 };
 
-const subheadStyle: React.CSSProperties = {
-  fontSize: '0.875rem',
-  lineHeight: 1.6,
-  color: 'var(--muted)',
-  maxWidth: '440px',
-};
-
 const ctaRowStyle: React.CSSProperties = {
   display: 'flex',
-  gap: '12px',
-  marginTop: '8px',
+  gap: '10px',
+  marginTop: '4px',
 };
 
-const ctaStyle: React.CSSProperties = {
-  display: 'inline-block',
+const ctaPrimaryStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '6px',
   background: 'var(--brand)',
   color: 'var(--white)',
   fontFamily: 'var(--font-heading)',
   fontWeight: 600,
   fontSize: '0.8125rem',
-  padding: '10px 24px',
+  padding: '10px 22px',
   borderRadius: '6px',
   textDecoration: 'none',
   transition: 'background 0.15s ease',
 };
 
-const secondaryCtaStyle: React.CSSProperties = {
-  display: 'inline-block',
+const ctaSecondaryStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '6px',
   fontFamily: 'var(--font-heading)',
   fontWeight: 500,
   fontSize: '0.8125rem',
-  padding: '10px 24px',
+  padding: '10px 22px',
   borderRadius: '6px',
   textDecoration: 'none',
   color: 'var(--brand)',
   border: '1px solid var(--brand)',
-  transition: 'background 0.15s ease',
+  transition: 'background 0.15s ease, color 0.15s ease',
 };
 
+const statsRowStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0',
+  marginTop: '8px',
+  padding: '12px 0',
+  borderTop: '1px solid var(--border)',
+  borderBottom: '1px solid var(--border)',
+};
+
+const statItemStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  flex: 1,
+  gap: '1px',
+};
+
+const statValueStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-heading)',
+  fontSize: '1rem',
+  fontWeight: 700,
+  color: 'var(--dark-text)',
+};
+
+const statLabelStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.6875rem',
+  fontWeight: 500,
+  color: 'var(--muted)',
+  textTransform: 'uppercase' as const,
+  letterSpacing: '0.03em',
+};
+
+const statDividerStyle: React.CSSProperties = {
+  width: '1px',
+  height: '28px',
+  background: 'var(--border)',
+};
+
+/* ── Right column ── */
 const rightColStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  gap: '12px',
+  gap: '10px',
 };
 
-const cardStyle: React.CSSProperties = {
+const tabsRowStyle: React.CSSProperties = {
+  display: 'flex',
+  gap: '8px',
+};
+
+const tabBtnStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '6px',
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.75rem',
+  fontWeight: 500,
+  padding: '6px 14px',
+  borderRadius: '20px',
+  border: '1px solid var(--border)',
+  background: 'var(--white)',
+  color: 'var(--muted)',
+  cursor: 'pointer',
+  transition: 'all 0.15s ease',
+};
+
+const tabBtnActiveStyle: React.CSSProperties = {
+  background: 'var(--brand)',
+  color: 'var(--white)',
+  borderColor: 'var(--brand)',
+};
+
+const ecosystemCardStyle: React.CSSProperties = {
   background: 'var(--white)',
   border: '1px solid var(--border)',
-  borderRadius: '8px',
-  padding: '16px 20px',
-  display: 'flex',
-  gap: '14px',
-  alignItems: 'flex-start',
-  transition: 'border-color 0.15s ease',
-};
-
-const cardIconStyle: React.CSSProperties = {
-  width: '36px',
-  height: '36px',
-  borderRadius: '8px',
-  background: 'rgba(23, 165, 220, 0.08)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'var(--brand)',
-  flexShrink: 0,
-};
-
-const cardContentStyle: React.CSSProperties = {
+  borderRadius: '12px',
+  overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column',
-  gap: '4px',
+  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+};
+
+const ecosystemImgStyle: React.CSSProperties = {
+  width: '100%',
+  height: 'auto',
+  display: 'block',
+  objectFit: 'contain',
+  maxHeight: '260px',
+};
+
+const ecosystemBannerStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.75rem',
+  color: 'var(--muted)',
+  padding: '8px 16px',
+  background: 'rgba(15,70,100,0.03)',
+  borderTop: '1px solid var(--border)',
+  textAlign: 'center',
+  lineHeight: 1.4,
+};
+
+/* ── Assistant tab ── */
+const assistantCardStyle: React.CSSProperties = {
+  background: '#0F172A',
+  border: '1px solid rgba(255,255,255,0.08)',
+  borderRadius: '12px',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column',
+  boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+  minHeight: '280px',
+};
+
+const assistantHeaderStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '6px',
+  padding: '10px 16px',
+  background: 'rgba(255,255,255,0.04)',
+  borderBottom: '1px solid rgba(255,255,255,0.06)',
+};
+
+const assistantDotStyle: React.CSSProperties = {
+  width: '8px',
+  height: '8px',
+  borderRadius: '50%',
+  background: 'rgba(255,255,255,0.2)',
+};
+
+const assistantTitleStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.6875rem',
+  color: 'rgba(255,255,255,0.4)',
+  marginLeft: '6px',
+};
+
+const assistantBodyStyle: React.CSSProperties = {
+  padding: '16px',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '12px',
   flex: 1,
 };
 
-const cardTitleStyle: React.CSSProperties = {
-  fontFamily: 'var(--font-heading)',
-  fontSize: '0.9375rem',
-  fontWeight: 600,
-  color: 'var(--dark-text)',
-};
-
-const cardBodyStyle: React.CSSProperties = {
+const assistantLabelStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
   fontSize: '0.8125rem',
-  lineHeight: 1.5,
-  color: 'var(--muted)',
+  fontWeight: 500,
+  color: 'rgba(23,165,220,0.85)',
 };
 
-const cardLinkStyle: React.CSSProperties = {
+const assistantOutputStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '6px',
+  background: 'rgba(255,255,255,0.04)',
+  borderRadius: '8px',
+  padding: '12px 14px',
+};
+
+const outputRowStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1px',
+};
+
+const outputKeyStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.6875rem',
+  fontWeight: 600,
+  color: 'rgba(255,255,255,0.4)',
+  textTransform: 'uppercase' as const,
+  letterSpacing: '0.04em',
+};
+
+const outputValStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.8125rem',
+  fontWeight: 400,
+  color: 'rgba(255,255,255,0.85)',
+};
+
+const assistantCmdStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
   fontSize: '0.75rem',
-  fontWeight: 500,
+  fontWeight: 400,
+  color: 'rgba(255,255,255,0.35)',
+};
+
+const assistantCursorStyle: React.CSSProperties = {
   color: 'var(--brand)',
+  fontWeight: 700,
+  marginRight: '4px',
+};
+
+const assistantLaunchStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '6px',
+  fontFamily: 'var(--font-heading)',
+  fontWeight: 600,
+  fontSize: '0.75rem',
+  padding: '8px 18px',
+  background: 'var(--brand)',
+  color: 'var(--white)',
   textDecoration: 'none',
-  marginTop: '2px',
+  alignSelf: 'flex-start',
+  borderRadius: '6px',
+  margin: '0 16px 16px',
+  transition: 'background 0.15s ease',
+};
+
+/* ── Bottom ticker ── */
+const tickerStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '20px',
+  padding: '8px 16px',
+  background: 'var(--white)',
+  border: '1px solid var(--border)',
+  borderRadius: '8px',
+  flexShrink: 0,
+  overflow: 'hidden',
+};
+
+const tickerLabelStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.6875rem',
+  fontWeight: 600,
+  color: 'var(--muted)',
+  textTransform: 'uppercase' as const,
+  letterSpacing: '0.05em',
+  whiteSpace: 'nowrap' as const,
+  flexShrink: 0,
+};
+
+const tickerTrackStyle: React.CSSProperties = {
+  display: 'flex',
+  gap: '32px',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap' as const,
+};
+
+const tickerLogoStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)',
+  fontSize: '0.8125rem',
+  fontWeight: 500,
+  color: 'var(--muted)',
+  opacity: 0.7,
+  whiteSpace: 'nowrap' as const,
 };
