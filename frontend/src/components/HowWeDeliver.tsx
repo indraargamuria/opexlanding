@@ -246,7 +246,7 @@ export function HowWeDeliver() {
               />
             </div>
 
-            <div style={gridStyle}>
+            <div style={gridStyle} className="phase-grid">
               {phases.map((phase, i) => {
                 const isActive = i <= activePhase;
 
@@ -305,7 +305,7 @@ export function HowWeDeliver() {
         the unified "How we deliver" heading. Anchor #services preserved.
       */}
       <section style={capabilitiesSectionStyle} id="services">
-        <div style={capabilitiesInnerStyle}>
+        <div style={capabilitiesInnerStyle} className="capabilities-grid">
           <div style={leftStyle}>
             <p style={leadStyle}>
               We don't split digital transformation into a "strategy deck" and a

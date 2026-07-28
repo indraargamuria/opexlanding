@@ -81,7 +81,7 @@ export function Faq() {
         <div style={headerStyle}>
           <p style={overlineStyle}>FAQ</p>
           {/* DRAFT COPY — needs review before launch */}
-          <h2 style={headingStyle}>Questions buyers actually ask</h2>
+          <h2 style={headingStyle} className="brand-accent-heading">Questions buyers actually ask</h2>
         </div>
 
         <div style={listStyle}>
@@ -100,7 +100,7 @@ export function Faq() {
 }
 
 const sectionStyle: React.CSSProperties = {
-  background: 'var(--light-bg)',
+  background: 'var(--white)',
   padding: '96px 24px',
 };
 

@@ -60,12 +60,12 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} style={sectionStyle}>
+    <section ref={sectionRef} style={sectionStyle} className="dot-grid-bg">
       <div style={innerStyle}>
         <div style={headerStyle}>
           <p style={overlineStyle}>What clients say</p>
           {/* DRAFT COPY — needs review before launch */}
-          <h2 style={headingStyle}>Voices from the floor</h2>
+          <h2 style={headingStyle} className="brand-accent-heading">Voices from the floor</h2>
         </div>
 
         <div style={gridStyle}>
@@ -104,7 +104,7 @@ export function Testimonials() {
 }
 
 const sectionStyle: React.CSSProperties = {
-  background: 'var(--light-bg)',
+  background: 'var(--white)',
   padding: '96px 24px',
 };
 

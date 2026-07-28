@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Approach', href: '#approach' },
@@ -7,6 +9,8 @@ const navLinks = [
 ];
 
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header style={headerStyle}>
       <div style={innerStyle}>
@@ -14,9 +18,26 @@ export function Header() {
           <span style={logoMarkStyle}>Opex</span>CG
         </a>
 
-        <nav style={navStyle}>
+        <button
+          className="hamburger-btn"
+          style={hamburgerStyle}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
+          <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
+          <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
+        </button>
+
+        <nav style={navStyle} className={`main-nav ${menuOpen ? 'nav-open' : ''}`}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} style={linkStyle}>
+            <a
+              key={link.href}
+              href={link.href}
+              style={linkStyle}
+              onClick={() => setMenuOpen(false)}
+            >
               {link.label}
             </a>
           ))}
@@ -27,7 +48,7 @@ export function Header() {
 }
 
 const headerStyle: React.CSSProperties = {
-  position: 'relative',
+  position: 'sticky',
   top: 0,
   left: 0,
   right: 0,
@@ -71,4 +92,15 @@ const linkStyle: React.CSSProperties = {
   color: 'var(--muted)',
   textDecoration: 'none',
   transition: 'color 0.15s ease',
+};
+
+const hamburgerStyle: React.CSSProperties = {
+  display: 'none',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  padding: '8px',
+  flexDirection: 'column',
+  gap: '5px',
+  zIndex: 110,
 };

@@ -76,7 +76,7 @@ export function Clients() {
   return (
     <section style={sectionStyle}>
       <div style={innerStyle}>
-        <p style={headingStyle}>Trusted by manufacturers across Southeast Asia</p>
+        <p style={headingStyle} className="brand-accent-heading">Trusted by manufacturers across Southeast Asia</p>
 
         <div style={marqueeContainerStyle}>
           <div style={marqueeTrackStyle} className="client-marquee-track">

@@ -5,7 +5,8 @@
       "Bash(PEXELS_API_KEY=PUBxWWZEC4Aq4KgizuQ49sBUq7ClzyIIxZKHucCyPQYDVXmQr5GfJE32 node:*)",
       "Bash(npm run build)",
       "Bash(npx tsc:*)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(curl:*)"
     ]
   }
 }

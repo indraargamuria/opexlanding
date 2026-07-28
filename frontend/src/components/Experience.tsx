@@ -159,11 +159,11 @@ export function Experience() {
       : projects.filter((project) => project.industry === activeFilter);
 
   return (
-    <section style={sectionStyle} id="experience">
+    <section style={sectionStyle} id="experience" className="dot-grid-bg">
       <div style={innerStyle}>
         <div style={headerStyle}>
           <p style={overlineStyle}>Experience</p>
-          <h2 style={headingStyle}>Proven results across the floor</h2>
+          <h2 style={headingStyle} className="brand-accent-heading">Proven results across the floor</h2>
           <p style={subheadStyle}>
             Real projects, real outcomes. Every engagement is grounded in
             methodology and measured in impact.
@@ -190,6 +190,7 @@ export function Experience() {
           {filteredProjects.map((project, i) => (
             <article
               key={project.client}
+              className="experience-card"
               style={{
                 ...cardStyle,
                 gridTemplateColumns: i % 2 === 0 ? '340px 1fr' : '1fr 340px',

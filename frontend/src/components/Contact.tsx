@@ -31,7 +31,7 @@ export function Contact() {
 
   return (
     <section style={sectionStyle} id="contact">
-      <div style={innerStyle}>
+      <div style={innerStyle} className="contact-grid">
         <div style={leftStyle}>
           <p style={overlineStyle}>Get in touch</p>
           <h2 style={headingStyle}>Let's talk about your floor</h2>

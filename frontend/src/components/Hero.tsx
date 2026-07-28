@@ -1,7 +1,7 @@
 export function Hero() {
   return (
     <section style={sectionStyle}>
-      <div style={innerStyle}>
+      <div style={innerStyle} className="hero-grid">
         <div style={contentStyle}>
           <div style={backgroundPatternStyle} className="hero-background-pattern" />
           <p style={overlineStyle} className="hero-fade-in">
@@ -31,7 +31,7 @@ export function Hero() {
             <div className="hero-ken-burns">
               <img
                 src="/images/hero.jpg"
-                alt="Factory manager and engineer in working session"
+                alt="Engineers collaborating on a tablet in a factory setting"
                 style={heroImageStyle}
               />
             </div>

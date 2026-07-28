@@ -3,19 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 const products = [
   {
     name: 'OpexAI',
-    description: 'AI-powered process optimization and predictive analytics for manufacturing operations.',
+    description: 'AI-powered process optimization and predictive analytics for manufacturing operations. From defect detection to throughput forecasting, OpexAI turns shop-floor data into actionable intelligence — without requiring a data science team on staff.',
     image: '/images/dashboard-1.jpg',
     imageAlt: 'AI-powered analytics dashboard',
   },
   {
-    name: 'ProfetAI',
-    description: 'Machine learning solutions for demand forecasting and production planning optimization.',
-    image: '/images/dashboard-2.jpg',
-    imageAlt: 'ML forecasting dashboard',
-  },
-  {
     name: 'OpexMX',
-    description: 'Manufacturing execution system with real-time visibility and adaptive workflow management.',
+    description: 'Manufacturing execution system with real-time visibility and adaptive workflow management. OpexMX connects your machines, operators, and planning systems into a single source of truth — brand-agnostic, built to integrate with whatever MES/ERP stack you already run.',
     image: '/images/dashboard-3.jpg',
     imageAlt: 'Manufacturing execution dashboard',
   },
@@ -65,7 +59,7 @@ export function Products() {
       <div style={innerStyle}>
         <p style={headingStyle}>AI-enabled products</p>
 
-        <div style={gridStyle}>
+        <div style={gridStyle} className="products-grid">
           {products.map((product, index) => (
             <div
               key={product.name}
@@ -73,19 +67,21 @@ export function Products() {
                 ...cardStyle,
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transitionDelay: `${index * 0.1}s`,
+                transitionDelay: `${index * 0.15}s`,
               }}
             >
               <ProductMockup
                 productImage={product.image}
                 productAlt={product.imageAlt}
               />
-              <h3 style={nameStyle}>{product.name}</h3>
-              <p style={descStyle}>{product.description}</p>
-              <a href="#" style={linkStyle}>
-                Learn more
-                <span style={arrowStyle}>&rarr;</span>
-              </a>
+              <div style={cardContentStyle}>
+                <h3 style={nameStyle}>{product.name}</h3>
+                <p style={descStyle}>{product.description}</p>
+                <a href="#" style={linkStyle}>
+                  Learn more
+                  <span style={arrowStyle}>&rarr;</span>
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -117,26 +113,30 @@ const headingStyle: React.CSSProperties = {
 
 const gridStyle: React.CSSProperties = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateColumns: 'repeat(2, 1fr)',
   gap: '32px',
+  textAlign: 'left',
 };
 
 const cardStyle: React.CSSProperties = {
   background: 'rgba(255, 255, 255, 0.03)',
   border: '1px solid rgba(255, 255, 255, 0.1)',
   borderRadius: '12px',
-  padding: '24px',
+  padding: '28px',
   display: 'flex',
   flexDirection: 'column',
-  gap: '16px',
-  alignItems: 'center',
-  textAlign: 'center',
+  gap: '24px',
   transition: 'opacity 0.5s ease-out, transform 0.5s ease-out, border-color 0.2s ease',
+};
+
+const cardContentStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '12px',
 };
 
 const mockupStyle: React.CSSProperties = {
   width: '100%',
-  maxWidth: '280px',
   background: 'rgba(15, 70, 100, 0.4)',
   border: '1px solid rgba(255, 255, 255, 0.1)',
   borderRadius: '8px',
@@ -159,7 +159,7 @@ const dotStyle: React.CSSProperties = {
 
 const screenshotStyle: React.CSSProperties = {
   width: '100%',
-  height: '120px',
+  height: '180px',
   objectFit: 'cover',
   display: 'block',
 };
@@ -172,8 +172,8 @@ const nameStyle: React.CSSProperties = {
 };
 
 const descStyle: React.CSSProperties = {
-  fontSize: 'var(--text-caption)',
-  lineHeight: 1.6,
+  fontSize: 'var(--text-body)',
+  lineHeight: 1.65,
   color: 'rgba(255, 255, 255, 0.65)',
 };
 
@@ -185,6 +185,7 @@ const linkStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '4px',
+  marginTop: '4px',
 };
 
 const arrowStyle: React.CSSProperties = {

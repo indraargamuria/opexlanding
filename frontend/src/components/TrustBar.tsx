@@ -6,6 +6,9 @@ import { ClientLogo } from './Clients';
  * Reuses ClientLogo from the full Clients section (size='sm' for reduced
  * visual weight). Visually quiet: no background change, no marquee,
  * standard IntersectionObserver fade-in matching the rest of the page.
+ *
+ * All logos (both real SVGs and text-badge fallbacks) get a unified
+ * grayscale + opacity treatment so they carry equal visual weight.
  */
 
 // 6 logos pulled from the Clients section's existing logo set.
@@ -54,9 +57,10 @@ export function TrustBar() {
           {trustBarClients.map((client) => (
             <div
               key={client.name}
+              className="trust-bar-logo"
               style={{
                 ...logoItemStyle,
-                opacity: isVisible ? 0.75 : 0,
+                visibility: isVisible ? 'visible' : 'hidden',
                 transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
               }}
             >
@@ -102,5 +106,6 @@ const logoItemStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  height: '40px',
   transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
 };
