@@ -1,26 +1,6 @@
-/*
- * OpexCG Landing Page — Design Tokens
- *
- * Color palette grounded in industrial/engineering feel:
- *   --brand:       #17A5DC — engineering blue, confident but not flashy
- *   --dark-accent: #0F4664 — deep steel, for dark sections (footer, framework bg)
- *   --light-bg:    #F8FBFD — cool near-white, dominant page background
- *   --dark-text:   #1F2937 — near-black for body copy
- *   --white:       #FFFFFF — card backgrounds, hero area
- *   --muted:       #6B7280 — captions, secondary text
- *   --border:      #E2E8F0 — subtle dividers
- *
- * Usage rules:
- *   - --light-bg and white carry most of the page
- *   - --brand appears ONLY in: primary CTA, active nav underline, framework accent line
- *   - --dark-accent is for 1-2 dark sections (footer, framework), not scattered
- *   - No pale brand tint washes — that reads as dashboard UI
- */
-
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* ── Color tokens ── */
   --brand: #17A5DC;
   --brand-hover: #1490C2;
   --brand-active: #117BA8;
@@ -31,25 +11,15 @@
   --muted: #6B7280;
   --border: #E2E8F0;
 
-  /* ── Typography tokens ── */
-  /*
-   * Headings: IBM Plex Sans — monospaced-origin sans with visible
-   *   engineering/industrial character. Slightly squared letterforms
-   *   feel technical without being sterile. Weight 600 for h1-h2,
-   *   weight 500 for h3-h4.
-   *
-   * Body: Inter — highly legible at small sizes, neutral without
-   *   being bland. Purposefully plain so headings carry the voice.
-   */
   --font-heading: 'IBM Plex Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
-  --text-h1: 3.5rem;    /* 56px */
-  --text-h2: 2.25rem;   /* 36px */
-  --text-h3: 1.5rem;    /* 24px */
-  --text-h4: 1.125rem;  /* 18px */
-  --text-body: 1rem;    /* 16px */
-  --text-caption: 0.875rem; /* 14px */
+  --text-h1: 3.5rem;
+  --text-h2: 2.25rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.125rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
 
   --weight-h1: 700;
   --weight-h2: 600;
@@ -62,25 +32,11 @@
   --leading-body: 1.6;
 }
 
-/* ── Reset & base ── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 body {
@@ -98,265 +54,63 @@ h1, h2, h3, h4 {
   color: var(--dark-text);
 }
 
-h1 {
-  font-size: var(--text-h1);
-  font-weight: var(--weight-h1);
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ── App shell ── */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--light-bg);
 }
 
-h2 {
-  font-size: var(--text-h2);
-  font-weight: var(--weight-h2);
-}
-
-h3 {
-  font-size: var(--text-h3);
-  font-weight: var(--weight-h3);
-}
-
-h4 {
-  font-size: var(--text-h4);
-  font-weight: var(--weight-h4);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-/* ── Hero entrance animation ── */
-@keyframes hero-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-fade-in {
-  animation: hero-fade-in 0.5s ease-out both;
-}
-
-.hero-delay-1 {
-  animation-delay: 0.1s;
-}
-
-.hero-delay-2 {
-  animation-delay: 0.2s;
-}
-
-.hero-delay-3 {
-  animation-delay: 0.3s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-fade-in {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* ── Hero Ken Burns (image zoom) ── */
-@keyframes hero-ken-burns {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.04);
-  }
-}
-
-.hero-ken-burns {
-  animation: hero-ken-burns 15s ease-in-out infinite alternate;
-}
-
-/* ── Hero background pattern drift ── */
-@keyframes hero-pattern-drift {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-8px, -8px);
-  }
-}
-
-.hero-background-pattern {
-  animation: hero-pattern-drift 25s ease-in-out infinite alternate;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-ken-burns {
-    animation: none;
-  }
-
-  .hero-background-pattern {
-    animation: none;
-  }
-}
-
-/* ── Hero CTA button ── */
-.hero-cta {
-  display: inline-block;
-  background: var(--brand);
-  color: var(--white);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: var(--text-body);
-  padding: 14px 32px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.15s ease;
-}
-
-.hero-cta:hover {
-  background: var(--brand-hover);
-}
-
-.hero-cta:active {
-  background: var(--brand-active);
-}
-
-.hero-cta:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
+.app-main {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
 }
 
 /* ── Contact form ── */
-.contact-input:focus {
-  border-color: var(--brand);
-}
+.contact-input:focus { border-color: var(--brand) !important; }
+.contact-input::placeholder { color: var(--muted); opacity: 0.6; }
+.contact-btn:hover { background: var(--brand-hover) !important; }
+.contact-btn:active { background: var(--brand-active) !important; }
+.contact-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
-.contact-input::placeholder {
-  color: var(--muted);
-  opacity: 0.6;
-}
-
-.contact-btn:hover {
-  background: var(--brand-hover);
-}
-
-.contact-btn:active {
-  background: var(--brand-active);
-}
-
-.contact-btn:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
-}
-
-/* ── Client marquee ── */
-@keyframes client-marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.client-marquee-track {
-  animation: client-marquee-scroll 35s linear infinite;
-}
-
-.client-marquee-track:hover {
-  animation-play-state: paused;
-}
-
-.client-logo-item:hover {
-  opacity: 1 !important;
-}
-
-/* ── Section texture: subtle dot-grid for light backgrounds ── */
-.dot-grid-bg {
-  position: relative;
-}
-
-.dot-grid-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, var(--brand) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.dot-grid-bg > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Brand accent line on section headings ── */
-.brand-accent-heading::before {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--brand);
-  margin-bottom: 16px;
-}
-
-/* ── Trust bar: unified grayscale logo treatment ── */
-.trust-bar-logo {
-  filter: grayscale(100%);
-  opacity: 0.55;
-  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.5s ease-out;
-}
-
-.trust-bar-logo:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .client-marquee-track {
-    animation: none;
-  }
-}
-
-/* ── Mobile: 768px ── */
+/* ── Mobile: allow vertical scroll, compact layout ── */
 @media (max-width: 768px) {
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
+  .app-main {
+    overflow-y: auto;
+    padding: 12px 16px !important;
   }
 
-  .products-grid {
-    grid-template-columns: 1fr !important;
+  .app-footer {
+    height: auto !important;
+    min-height: 40px;
+    padding: 8px 16px;
   }
 
-  .phase-grid {
-    grid-template-columns: 1fr 1fr !important;
+  .app-footer > div {
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: 6px 16px !important;
   }
 
-  .capabilities-grid {
-    grid-template-columns: 1fr !important;
-    gap: 48px !important;
+  .footer-center-links {
+    gap: 12px !important;
   }
 
-  .experience-card {
-    grid-template-columns: 1fr !important;
+  .app-footer form {
+    width: auto;
   }
 
-  .founder-profile {
-    grid-template-columns: 1fr !important;
+  .app-footer form input {
+    width: 100px;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 48px !important;
-  }
-
-  /* Header: show hamburger, hide desktop nav + CTA */
   .desktop-nav,
   .desktop-right {
     display: none !important;
@@ -365,37 +119,10 @@ img {
   .hamburger-btn {
     display: flex !important;
   }
-
-  /* Footer: stack columns */
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
 }
 
-/* ── Mobile: 480px ── */
 @media (max-width: 480px) {
-  .phase-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .hero-cta {
-    display: block;
-    text-align: center;
-  }
-
-  /* Footer newsletter: stack input + button */
-  .footer-grid form {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-grid form input {
-    border-radius: 6px;
-  }
-
-  .footer-grid form button {
-    border-radius: 6px;
-    width: 100%;
+  .app-footer form {
+    display: none;
   }
 }
