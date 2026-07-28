@@ -356,63 +356,20 @@ img {
     gap: 48px !important;
   }
 
-  /* Header: hamburger */
+  /* Header: show hamburger, hide desktop nav + CTA */
+  .desktop-nav,
+  .desktop-right {
+    display: none !important;
+  }
+
   .hamburger-btn {
     display: flex !important;
   }
 
-  .hamburger-line {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--dark-text);
-    border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .hamburger-line.open:first-child {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .hamburger-line.open:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger-line.open:last-child {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  .main-nav {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    gap: 0 !important;
-    padding: 8px 0;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-  }
-
-  .main-nav.nav-open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .main-nav a {
-    display: block;
-    padding: 14px 24px;
-    font-size: 1rem !important;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .main-nav a:last-child {
-    border-bottom: none;
+  /* Footer: stack columns */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
 }
 
@@ -425,5 +382,20 @@ img {
   .hero-cta {
     display: block;
     text-align: center;
+  }
+
+  /* Footer newsletter: stack input + button */
+  .footer-grid form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-grid form input {
+    border-radius: 6px;
+  }
+
+  .footer-grid form button {
+    border-radius: 6px;
+    width: 100%;
   }
 }
