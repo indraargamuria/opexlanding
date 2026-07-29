@@ -132,7 +132,7 @@ function ProductCard({ p }: { p: typeof products[0] }) {
     <div className="flex flex-col bg-white border border-slate-200 rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.04)] overflow-hidden">
       {/* Badge Row */}
       <div className="flex items-center gap-2 px-4 pt-4 pb-2">
-        <div className="flex items-center justify-center w-7 h-7 rounded-md bg-[rgba(23,165,220,0.08)] shrink-0">
+        <div className="flex items-center justify-center w-7 h-7 rounded-md bg-brand/8 shrink-0">
           <Icon size={15} className="text-brand" />
         </div>
         {p.badge.map((b, i) => (

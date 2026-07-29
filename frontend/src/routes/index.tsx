@@ -64,7 +64,7 @@ function HomePage() {
             </Link>
             <button
               onClick={() => setVideoOpen(true)}
-              className="inline-flex items-center gap-1.5 text-brand border border-brand text-[0.75rem] font-heading font-medium px-[18px] py-[8px] rounded-[6px] bg-transparent hover:bg-[rgba(23,165,220,0.08)] active:bg-[rgba(23,165,220,0.14)] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-brand border border-brand text-[0.75rem] font-heading font-medium px-[18px] py-[8px] rounded-[6px] bg-transparent hover:bg-brand/8 active:bg-brand/14 transition-colors cursor-pointer"
             >
               <Play size={14} />
               OpexMX Demo
@@ -89,7 +89,7 @@ function HomePage() {
                   key={a.title}
                   className="flex flex-col gap-1.5 bg-white border border-border rounded-[10px] p-3"
                 >
-                  <div className="flex items-center justify-center w-[28px] h-[28px] rounded-[7px] bg-[rgba(23,165,220,0.08)] shrink-0">
+                  <div className="flex items-center justify-center w-[28px] h-[28px] rounded-[7px] bg-brand/8 shrink-0">
                     <Icon size={15} className="text-brand" />
                   </div>
                   <div className="flex flex-col gap-[1px]">

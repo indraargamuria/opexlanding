@@ -22,31 +22,31 @@ const founders = [
 function MemberIllustration({ index }: { index: number }) {
   const illustrations = [
     <svg key="0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <circle cx="60" cy="55" r="48" fill="#17A5DC" opacity="0.08"/>
-      <circle cx="60" cy="55" r="14" fill="#17A5DC" opacity="0.25"/>
-      <path d="M30 110c0-22 13-40 30-40s30 18 30 40" fill="#0F4664" opacity="0.15"/>
-      <path d="M38 110c0-18 10-32 22-32s22 14 22 32" fill="#0F4664" opacity="0.25"/>
-      <rect x="78" y="44" width="20" height="26" rx="3" fill="white" stroke="#17A5DC" strokeWidth="1.5"/>
-      <line x1="82" y1="52" x2="94" y2="52" stroke="#17A5DC" strokeWidth="1" opacity="0.5"/>
-      <line x1="82" y1="56" x2="90" y2="56" stroke="#17A5DC" strokeWidth="1" opacity="0.5"/>
-      <line x1="82" y1="60" x2="92" y2="60" stroke="#17A5DC" strokeWidth="1" opacity="0.5"/>
+      <circle cx="60" cy="55" r="48" fill="#0E8ED6" opacity="0.08"/>
+      <circle cx="60" cy="55" r="14" fill="#0E8ED6" opacity="0.25"/>
+      <path d="M30 110c0-22 13-40 30-40s30 18 30 40" fill="#061A29" opacity="0.15"/>
+      <path d="M38 110c0-18 10-32 22-32s22 14 22 32" fill="#061A29" opacity="0.25"/>
+      <rect x="78" y="44" width="20" height="26" rx="3" fill="white" stroke="#0E8ED6" strokeWidth="1.5"/>
+      <line x1="82" y1="52" x2="94" y2="52" stroke="#0E8ED6" strokeWidth="1" opacity="0.5"/>
+      <line x1="82" y1="56" x2="90" y2="56" stroke="#0E8ED6" strokeWidth="1" opacity="0.5"/>
+      <line x1="82" y1="60" x2="92" y2="60" stroke="#0E8ED6" strokeWidth="1" opacity="0.5"/>
     </svg>,
     <svg key="1" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <circle cx="60" cy="55" r="48" fill="#0F4664" opacity="0.08"/>
-      <circle cx="60" cy="55" r="14" fill="#0F4664" opacity="0.2"/>
-      <path d="M30 110c0-22 13-40 30-40s30 18 30 40" fill="#17A5DC" opacity="0.12"/>
-      <path d="M38 110c0-18 10-32 22-32s22 14 22 32" fill="#17A5DC" opacity="0.2"/>
-      <circle cx="85" cy="42" r="12" stroke="#17A5DC" strokeWidth="1.5" fill="none" opacity="0.4"/>
-      <circle cx="85" cy="42" r="5" stroke="#17A5DC" strokeWidth="1.5" fill="none" opacity="0.4"/>
+      <circle cx="60" cy="55" r="48" fill="#061A29" opacity="0.08"/>
+      <circle cx="60" cy="55" r="14" fill="#061A29" opacity="0.2"/>
+      <path d="M30 110c0-22 13-40 30-40s30 18 30 40" fill="#0E8ED6" opacity="0.12"/>
+      <path d="M38 110c0-18 10-32 22-32s22 14 22 32" fill="#0E8ED6" opacity="0.2"/>
+      <circle cx="85" cy="42" r="12" stroke="#0E8ED6" strokeWidth="1.5" fill="none" opacity="0.4"/>
+      <circle cx="85" cy="42" r="5" stroke="#0E8ED6" strokeWidth="1.5" fill="none" opacity="0.4"/>
     </svg>,
     <svg key="2" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
-      <circle cx="60" cy="55" r="48" fill="#17A5DC" opacity="0.06"/>
-      <circle cx="60" cy="55" r="14" fill="#17A5DC" opacity="0.22"/>
-      <path d="M30 110c0-22 13-40 30-40s30 18 30 40" fill="#0F4664" opacity="0.15"/>
-      <rect x="80" y="40" width="24" height="18" rx="2" fill="white" stroke="#17A5DC" strokeWidth="1.5" opacity="0.6"/>
-      <line x1="84" y1="46" x2="100" y2="46" stroke="#17A5DC" strokeWidth="1" opacity="0.35"/>
-      <line x1="84" y1="50" x2="96" y2="50" stroke="#0F4664" strokeWidth="1" opacity="0.25"/>
-      <line x1="84" y1="54" x2="98" y2="54" stroke="#17A5DC" strokeWidth="1" opacity="0.35"/>
+      <circle cx="60" cy="55" r="48" fill="#0E8ED6" opacity="0.06"/>
+      <circle cx="60" cy="55" r="14" fill="#0E8ED6" opacity="0.22"/>
+      <path d="M30 110c0-22 13-40 30-40s30 18 30 40" fill="#061A29" opacity="0.15"/>
+      <rect x="80" y="40" width="24" height="18" rx="2" fill="white" stroke="#0E8ED6" strokeWidth="1.5" opacity="0.6"/>
+      <line x1="84" y1="46" x2="100" y2="46" stroke="#0E8ED6" strokeWidth="1" opacity="0.35"/>
+      <line x1="84" y1="50" x2="96" y2="50" stroke="#061A29" strokeWidth="1" opacity="0.25"/>
+      <line x1="84" y1="54" x2="98" y2="54" stroke="#0E8ED6" strokeWidth="1" opacity="0.35"/>
     </svg>,
   ];
   return <div style={illustrationStyle}>{illustrations[index]}</div>;

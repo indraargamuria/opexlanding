@@ -8,8 +8,12 @@ export function Header() {
   return (
     <header style={headerStyle}>
       <div style={innerStyle}>
-        <Link to="/" style={logoStyle} onClick={() => setMenuOpen(false)}>
-          <span style={logoMarkStyle}>Opex</span>CG
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          <img
+            src="/images/opexcglogo.png"
+            alt="OpexCG"
+            style={logoImageStyle}
+          />
         </Link>
 
         <nav style={desktopNavStyle} className="desktop-nav">
@@ -52,8 +56,12 @@ export function Header() {
         }}
       >
         <div style={drawerHeaderStyle}>
-          <Link to="/" style={{ ...logoStyle, fontSize: '1rem' }} onClick={() => setMenuOpen(false)}>
-            <span style={logoMarkStyle}>Opex</span>CG
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <img
+              src="/images/opexcglogo.png"
+              alt="OpexCG"
+              style={{ ...logoImageStyle, height: '28px' }}
+            />
           </Link>
           <button style={drawerCloseStyle} onClick={() => setMenuOpen(false)} aria-label="Close menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -120,17 +128,10 @@ const innerStyle: React.CSSProperties = {
   justifyContent: 'space-between',
 };
 
-const logoStyle: React.CSSProperties = {
-  fontFamily: 'var(--font-heading)',
-  fontSize: '1.0625rem',
-  fontWeight: 700,
-  color: 'var(--dark-text)',
-  textDecoration: 'none',
-  letterSpacing: '-0.02em',
-};
-
-const logoMarkStyle: React.CSSProperties = {
-  color: 'var(--brand)',
+const logoImageStyle: React.CSSProperties = {
+  height: '32px',
+  width: 'auto',
+  display: 'block',
 };
 
 const desktopNavStyle: React.CSSProperties = {

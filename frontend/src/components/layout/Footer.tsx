@@ -6,8 +6,12 @@ export function Footer() {
     <footer style={footerStyle} className="app-footer">
       <div style={innerStyle}>
         <div style={leftStyle}>
-          <Link to="/" style={brandStyle}>
-            <span style={brandMarkStyle}>Opex</span>CG
+          <Link to="/" style={brandLogoStyle}>
+            <img
+              src="/images/opexcglogo.png"
+              alt="OpexCG"
+              style={footerLogoStyle}
+            />
           </Link>
           <span style={separatorStyle} aria-hidden>&nbsp;&middot;&nbsp;</span>
           <span style={copyrightStyle}>&copy; {new Date().getFullYear()} OpexCG</span>
@@ -40,7 +44,7 @@ export function Footer() {
 }
 
 const footerStyle: React.CSSProperties = {
-  background: '#081E2C',
+  background: 'var(--dark-accent)',
   color: 'var(--white)',
   flexShrink: 0,
   height: '48px',
@@ -63,16 +67,17 @@ const leftStyle: React.CSSProperties = {
   whiteSpace: 'nowrap' as const,
 };
 
-const brandStyle: React.CSSProperties = {
-  fontFamily: 'var(--font-heading)',
-  fontSize: '0.8125rem',
-  fontWeight: 700,
+const brandLogoStyle: React.CSSProperties = {
   textDecoration: 'none',
-  color: 'var(--white)',
+  display: 'flex',
+  alignItems: 'center',
 };
 
-const brandMarkStyle: React.CSSProperties = {
-  color: 'var(--brand)',
+const footerLogoStyle: React.CSSProperties = {
+  height: '24px',
+  width: 'auto',
+  display: 'block',
+  filter: 'brightness(0) invert(1)',
 };
 
 const separatorStyle: React.CSSProperties = {

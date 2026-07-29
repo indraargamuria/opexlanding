@@ -72,7 +72,7 @@ function CaseStudyCard({ c }: { c: typeof caseStudies[0] }) {
           {c.kpis.map((k) => (
             <span
               key={k}
-              className="bg-sky-50 text-sky-700 border border-sky-100 text-xs font-semibold px-2.5 py-1 rounded-md"
+              className="bg-brand/10 text-brand border border-brand/20 text-xs font-semibold px-2.5 py-1 rounded-md"
             >
               {k}
             </span>

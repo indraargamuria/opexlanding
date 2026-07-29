@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #17A5DC;
-  --color-brand-hover: #1490C2;
-  --color-brand-active: #117BA8;
-  --color-dark-accent: #0F4664;
+  --color-brand: #0E8ED6;
+  --color-brand-hover: #0C7AB8;
+  --color-brand-active: #0A689A;
+  --color-dark-accent: #061A29;
   --color-light-bg: #F8FBFD;
   --color-dark-text: #1F2937;
   --color-muted: #6B7280;
@@ -37,10 +37,10 @@
 
 /* Keep old var() names for backward compatibility with existing pages */
 :root {
-  --brand: #17A5DC;
-  --brand-hover: #1490C2;
-  --brand-active: #117BA8;
-  --dark-accent: #0F4664;
+  --brand: #0E8ED6;
+  --brand-hover: #0C7AB8;
+  --brand-active: #0A689A;
+  --dark-accent: #061A29;
   --light-bg: #F8FBFD;
   --dark-text: #1F2937;
   --white: #FFFFFF;
@@ -74,8 +74,14 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  /* Allow normal scrolling on mobile */
+  .app-shell {
+    overflow: visible;
+  }
+
   .app-main {
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 12px 16px !important;
   }
 

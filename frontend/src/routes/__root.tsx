@@ -27,4 +27,6 @@ const mainStyle: React.CSSProperties = {
   overflow: 'hidden',
   padding: '16px 24px',
   minHeight: 0,
+  // Desktop: no scroll, content should fit viewport
+  // Mobile: will be overridden in media query to allow scrolling
 };
