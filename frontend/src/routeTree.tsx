@@ -5,10 +5,12 @@ import { Route as productsRoute } from './routes/products';
 import { Route as experienceRoute } from './routes/experience';
 import { Route as aboutRoute } from './routes/about';
 import { Route as contactRoute } from './routes/contact';
+import { Route as solutionsRoute } from './routes/solutions';
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
   productsRoute,
+  solutionsRoute,
   experienceRoute,
   aboutRoute,
   contactRoute,

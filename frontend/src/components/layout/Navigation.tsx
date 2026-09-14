@@ -1,6 +1,6 @@
 export const navLinks = [
-  { label: 'Home', to: '/' },
   { label: 'Products', to: '/products' },
+  { label: 'Solutions', to: '/solutions' },
   { label: 'Experience', to: '/experience' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },

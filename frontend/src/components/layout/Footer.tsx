@@ -18,7 +18,7 @@ export function Footer() {
         </div>
 
         <nav style={centerStyle} className="footer-center-links">
-          {navLinks.filter(l => l.to !== '/').map((link) => (
+          {navLinks.map((link) => (
             <Link key={link.to} to={link.to} style={footerLinkStyle}>
               {link.label}
             </Link>

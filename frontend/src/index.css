@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #0E8ED6;
-  --color-brand-hover: #0C7AB8;
-  --color-brand-active: #0A689A;
-  --color-dark-accent: #061A29;
-  --color-light-bg: #F8FBFD;
-  --color-dark-text: #1F2937;
-  --color-muted: #6B7280;
+  --color-brand: #0F172A;
+  --color-brand-hover: #1E293B;
+  --color-brand-active: #334155;
+  --color-accent: #F59E0B;
+  --color-accent-hover: #D97706;
+  --color-accent-active: #B45309;
+  --color-dark-accent: #0F172A;
+  --color-light-bg: #F8FAFC;
+  --color-dark-text: #1E293B;
+  --color-muted: #64748B;
   --color-border: #E2E8F0;
   --font-heading: 'IBM Plex Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -37,14 +40,17 @@
 
 /* Keep old var() names for backward compatibility with existing pages */
 :root {
-  --brand: #0E8ED6;
-  --brand-hover: #0C7AB8;
-  --brand-active: #0A689A;
-  --dark-accent: #061A29;
-  --light-bg: #F8FBFD;
-  --dark-text: #1F2937;
+  --brand: #0F172A;
+  --brand-hover: #1E293B;
+  --brand-active: #334155;
+  --accent: #F59E0B;
+  --accent-hover: #D97706;
+  --accent-active: #B45309;
+  --dark-accent: #0F172A;
+  --light-bg: #F8FAFC;
+  --dark-text: #1E293B;
   --white: #FFFFFF;
-  --muted: #6B7280;
+  --muted: #64748B;
   --border: #E2E8F0;
   --font-heading: 'IBM Plex Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
