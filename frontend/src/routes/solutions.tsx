@@ -2,7 +2,6 @@ import { createRoute } from '@tanstack/react-router';
 import { Route as rootRoute } from './__root';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, ShieldCheck, Settings, LifeBuoy, KanbanSquare, Users, Receipt } from 'lucide-react';
-
 const solutions = [
   {
     title: 'Manufacturing Operations',
@@ -69,9 +68,9 @@ function SolutionsPage() {
                 <p className="text-[0.75rem] text-muted leading-relaxed flex-1">{s.desc}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {s.products.map((p) => (
-                    <span key={p} className="text-[0.5625rem] font-medium px-2 py-0.5 rounded-full bg-accent/10 text-accent">
+                    <Link key={p} to={p === 'OpexMX' ? '/opexmx' : '/products'} className="text-[0.5625rem] font-medium px-2 py-0.5 rounded-full bg-accent/10 text-accent hover:bg-accent/20">
                       {p}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>

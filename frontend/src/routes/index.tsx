@@ -32,21 +32,22 @@ function HomePage() {
           <div className="lg:col-span-6 flex flex-col gap-4">
             <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">
               <span className="mr-1">&#9889;</span>
-              OPERATIONAL SOFTWARE + EXPERTISE
+              FLAGSHIP PRODUCT
             </div>
             <h1 className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.1] tracking-tight text-dark-text">
-              Software that runs your operations. Expertise that makes it work.
+              AI Maintenance eXecution for Operational Excellence
             </h1>
             <p className="text-[0.875rem] text-muted leading-relaxed max-w-lg">
-              Opex-AIO is our all-in-one platform — five modular products that work independently or together.
-              Backed by 20+ years of Lean Six Sigma and Industry 4.0 consulting across Southeast Asia.
+              OpexMX puts your maintenance team on one system in days — skills, shifts, and workloads in the
+              loop, with AI agents built in. Backed by 20+ years of Lean Six Sigma and Industry 4.0 consulting
+              across Southeast Asia.
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
               <Link
-                to="/products"
-                className="inline-flex items-center gap-1.5 bg-brand text-white text-[0.8125rem] font-heading font-semibold px-5 py-2.5 rounded-[6px] hover:bg-brand-hover active:bg-brand-active transition-colors no-underline"
+                to="/opexmx"
+                className="inline-flex items-center gap-1.5 bg-accent text-dark-navy text-[0.8125rem] font-heading font-semibold px-5 py-2.5 rounded-[6px] hover:bg-accent-hover active:bg-accent-active transition-colors no-underline"
               >
-                Explore Opex-AIO
+                Explore OpexMX
                 <ArrowRight size={14} />
               </Link>
               <button
@@ -54,7 +55,7 @@ function HomePage() {
                 className="inline-flex items-center gap-1.5 text-brand border border-brand text-[0.8125rem] font-heading font-medium px-5 py-2.5 rounded-[6px] bg-transparent hover:bg-brand/8 active:bg-brand/14 transition-colors cursor-pointer"
               >
                 <Play size={14} />
-                OpexMX Demo
+                Watch Demo
               </button>
               <Link
                 to="/contact"
@@ -68,10 +69,16 @@ function HomePage() {
             <div className="bg-white border border-border rounded-xl p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-[0.7rem] font-heading font-semibold text-dark-text">Opex-AIO Platform</span>
-                <span className="text-[0.6rem] text-muted ml-auto">5 modules · 1 login</span>
+                <span className="text-[0.7rem] font-heading font-semibold text-dark-text">OpexMX · Flagship</span>
+                <span className="text-[0.6rem] text-muted ml-auto">CMMS + AI agents</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <div className="flex flex-col items-center gap-1.5 p-3 bg-accent/10 rounded-lg border border-accent/30">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-accent/20">
+                    <Settings size={16} className="text-accent-active" />
+                  </div>
+                  <span className="text-[0.65rem] font-heading font-semibold text-dark-text">OpexMX</span>
+                </div>
                 {PRODUCT_MODULES.map((m) => {
                   const Icon = iconMap[m.icon];
                   return (
@@ -83,12 +90,6 @@ function HomePage() {
                     </div>
                   );
                 })}
-                <div className="flex flex-col items-center gap-1.5 p-3 bg-brand/5 rounded-lg border border-brand/10">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-brand/10">
-                    <Settings size={16} className="text-brand" />
-                  </div>
-                  <span className="text-[0.65rem] font-heading font-semibold text-dark-text">OpexMX</span>
-                </div>
               </div>
             </div>
             <div className="flex items-center justify-center gap-2 py-2 px-4 bg-slate-100/60 rounded-lg">
@@ -106,8 +107,8 @@ function HomePage() {
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-[1.25rem] font-bold text-dark-text tracking-tight">Opex-AIO Modules</h2>
-              <p className="text-[0.75rem] text-muted mt-0.5">Five products. One platform. Pick what you need.</p>
+              <h2 className="text-[1.25rem] font-bold text-dark-text tracking-tight">The Opex-AIO Suite</h2>
+              <p className="text-[0.75rem] text-muted mt-0.5">Our all-in-one platform — five modular products that work independently or together.</p>
             </div>
             <Link to="/products" className="text-[0.75rem] font-heading font-semibold text-brand hover:text-brand-hover transition-colors no-underline flex items-center gap-1">
               View all <ArrowRight size={12} />

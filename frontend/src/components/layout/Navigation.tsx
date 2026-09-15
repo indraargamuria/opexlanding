@@ -1,5 +1,6 @@
 export const navLinks = [
-  { label: 'Products', to: '/products' },
+  { label: 'OpexMX', to: '/opexmx' },
+  { label: 'Opex-AIO', to: '/products' },
   { label: 'Solutions', to: '/solutions' },
   { label: 'Experience', to: '/experience' },
   { label: 'About', to: '/about' },
