@@ -1,4 +1,4 @@
-import { Env, json, err } from '../_lib';
+import { Env, json, err } from './_lib';
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   try {
