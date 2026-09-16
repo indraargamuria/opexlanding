@@ -24,7 +24,7 @@ function OpexMxPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 flex flex-col gap-4">
             <div className="inline-flex items-center gap-2 self-start text-[0.7rem] font-semibold tracking-wide uppercase">
-              <span className="px-2 py-0.5 rounded bg-blue text-white font-heading">FLAGSHIP PRODUCT</span>
+              <span className="px-2 py-0.5 rounded bg-blue text-white font-heading">CMMS + AI</span>
               <span className="text-white/60">Computerized Maintenance Management System</span>
             </div>
             <h1 className="text-[2rem] md:text-[2.75rem] font-bold leading-[1.08] tracking-tight text-white">
@@ -118,21 +118,76 @@ function OpexMxPage() {
             <h2 className="text-[1.25rem] font-bold text-dark-text tracking-tight">Everything your maintenance team needs</h2>
             <p className="text-[0.75rem] text-muted mt-0.5">All modules your team uses, in one system.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {OPEXMX.modules.map((m) => {
-              const Icon = moduleIcons[m.icon];
-              return (
-                <div key={m.name} className="flex items-start gap-3 bg-white border border-border rounded-xl p-4">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: `${AMBER}15` }}>
-                    {Icon && <Icon size={15} className="text-accent" />}
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-[0.8125rem] font-heading font-semibold text-dark-text">{m.name}</span>
-                    <span className="text-[0.6875rem] text-muted leading-snug">{m.body}</span>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="flex flex-col gap-6">
+            {/* Tier 1: Core */}
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[0.625rem] font-heading font-bold text-blue uppercase tracking-wide">Core</span>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {OPEXMX.modules.slice(0, 3).map((m) => {
+                  const Icon = moduleIcons[m.icon];
+                  return (
+                    <div key={m.name} className="flex items-start gap-3 bg-white border border-border rounded-xl p-4">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: `${AMBER}15` }}>
+                        {Icon && <Icon size={15} className="text-accent" />}
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-[0.8125rem] font-heading font-semibold text-dark-text">{m.name}</span>
+                        <span className="text-[0.6875rem] text-muted leading-snug">{m.body}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* Tier 2: Operations */}
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[0.625rem] font-heading font-bold text-blue-dark uppercase tracking-wide">Operations</span>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {OPEXMX.modules.slice(3, 6).map((m) => {
+                  const Icon = moduleIcons[m.icon];
+                  return (
+                    <div key={m.name} className="flex items-start gap-3 bg-white border border-border rounded-xl p-4">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: `${AMBER}15` }}>
+                        {Icon && <Icon size={15} className="text-accent" />}
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-[0.8125rem] font-heading font-semibold text-dark-text">{m.name}</span>
+                        <span className="text-[0.6875rem] text-muted leading-snug">{m.body}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* Tier 3: Intelligence */}
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[0.625rem] font-heading font-bold text-blue-dark uppercase tracking-wide">Intelligence</span>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {OPEXMX.modules.slice(6, 9).map((m) => {
+                  const Icon = moduleIcons[m.icon];
+                  return (
+                    <div key={m.name} className="flex items-start gap-3 bg-white border border-border rounded-xl p-4">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: `${AMBER}15` }}>
+                        {Icon && <Icon size={15} className="text-accent" />}
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-[0.8125rem] font-heading font-semibold text-dark-text">{m.name}</span>
+                        <span className="text-[0.6875rem] text-muted leading-snug">{m.body}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
 

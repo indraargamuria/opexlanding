@@ -31,16 +31,15 @@ function HomePage() {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 flex flex-col gap-4">
             <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">
-              <span className="mr-1">&#9889;</span>
-              FLAGSHIP PRODUCT
+              CMMS + AI
             </div>
             <h1 className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.1] tracking-tight text-dark-text">
-              AI Maintenance eXecution for Operational Excellence
+              Your maintenance team, on one system
             </h1>
             <p className="text-[0.875rem] text-muted leading-relaxed max-w-lg">
-              OpexMX puts your maintenance team on one system in days — skills, shifts, and workloads in the
-              loop, with AI agents built in. Backed by 20+ years of Lean Six Sigma and Industry 4.0 consulting
-              across Southeast Asia.
+              OpexMX is a modern CMMS with AI agents built in — work orders, asset tracking, and
+              preventive maintenance, live in days. Paired with consulting from 20+ years of
+              Lean Six Sigma across Southeast Asia.
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
               <Link
