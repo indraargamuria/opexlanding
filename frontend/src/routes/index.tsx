@@ -102,6 +102,16 @@ function HomePage() {
           </div>
         </section>
 
+        {/* ═══ Trusted By ═══ */}
+        <section className="flex flex-col items-center gap-3 py-4 border-t border-b border-border">
+          <span className="text-[0.625rem] font-semibold tracking-wide uppercase text-muted">Trusted by manufacturing teams across</span>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            {['Grand Venture Technology', 'Polytron', 'Wong Fong Engineering', 'Kobexindo Tractors', 'PT Esco Indonesia'].map((name) => (
+              <span key={name} className="text-[0.8125rem] font-heading font-semibold text-dark-text/40 whitespace-nowrap">{name}</span>
+            ))}
+          </div>
+        </section>
+
         {/* ═══ Opex-AIO Modules ═══ */}
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
@@ -207,6 +217,22 @@ function HomePage() {
                   <ExternalLink size={12} />
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ Testimonial ═══ */}
+        <section className="bg-blue-light border border-blue-border rounded-xl p-6 flex flex-col gap-3">
+          <blockquote className="text-[0.9375rem] font-heading font-medium text-dark-text leading-relaxed italic">
+            "OpexMX punya struktur master data yang baik. Dari situ kami bisa develop sendiri workflow yang kami butuhkan."
+          </blockquote>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-blue/20 flex items-center justify-center">
+              <span className="text-[0.625rem] font-heading font-bold text-blue">PT</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[0.75rem] font-heading font-semibold text-dark-text">Production Manager</span>
+              <span className="text-[0.6875rem] text-muted">Polytron, Indonesia</span>
             </div>
           </div>
         </section>
