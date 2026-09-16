@@ -221,7 +221,7 @@ function OpexMxPage() {
               <ArrowRight size={13} />
             </Link>
             <Link
-              to="/experience"
+              to="/case-studies"
               className="inline-flex items-center gap-1.5 text-white/80 border border-white/30 text-[0.75rem] font-heading font-medium px-4 py-2 rounded-[6px] hover:bg-white/10 transition-colors no-underline"
             >
               See Case Studies

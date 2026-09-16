@@ -7,6 +7,11 @@ import { Route as experienceRoute } from './routes/experience';
 import { Route as aboutRoute } from './routes/about';
 import { Route as contactRoute } from './routes/contact';
 import { Route as solutionsRoute } from './routes/solutions';
+import { Route as blogRoute } from './routes/blog';
+import { Route as blogPostRoute } from './routes/blog.$slug';
+import { Route as caseStudiesRoute } from './routes/case-studies';
+import { Route as caseStudyRoute } from './routes/case-studies.$slug';
+import { Route as adminRoute } from './routes/admin';
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
@@ -14,8 +19,13 @@ const routeTree = rootRoute.addChildren([
   productsRoute,
   solutionsRoute,
   experienceRoute,
+  caseStudiesRoute,
+  caseStudyRoute,
+  blogRoute,
+  blogPostRoute,
   aboutRoute,
   contactRoute,
+  adminRoute,
 ]);
 
 export const router = createRouter({ routeTree });
