@@ -6,16 +6,19 @@ const founders = [
     name: 'Franklin Kurniawan',
     title: 'Founder & Principal Consultant',
     bio: '20+ years in operational excellence across SEA manufacturing. Lean Six Sigma Black Belt.',
+    image: '/images/founder-1.jpg',
   },
   {
     name: 'Lee Theam Wah',
     title: 'Co-Founder & Technology Director',
     bio: 'Industrial automation and systems integration. Leads OpexCG\'s brand-agnostic tech practice.',
+    image: '/images/founder-2.jpg',
   },
   {
     name: 'Rajendra Khrisnan',
     title: 'Co-Founder & Senior Consultant',
     bio: 'Specialist in Lean Six Sigma training and organizational capability building across SEA.',
+    image: '/images/founder-3.jpg',
   },
 ];
 
@@ -60,11 +63,11 @@ function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {founders.map((f) => (
               <div key={f.name} className="bg-white border border-border rounded-xl p-5 flex flex-col items-center text-center gap-3">
-                <div className="w-16 h-16 rounded-full bg-blue-light flex items-center justify-center">
-                  <span className="text-[1.25rem] font-heading font-bold text-blue">
-                    {f.name.split(' ').map((n) => n[0]).join('')}
-                  </span>
-                </div>
+                <img
+                  src={f.image}
+                  alt={f.name}
+                  className="w-20 h-20 rounded-full object-cover border-2 border-blue-light"
+                />
                 <div className="flex flex-col gap-1">
                   <span className="text-[0.875rem] font-heading font-semibold text-dark-text">{f.name}</span>
                   <span className="text-[0.6875rem] font-medium text-blue">{f.title}</span>

@@ -18,10 +18,22 @@ function CaseStudyDetail({ slug }: { slug: string }) {
   let metrics: { label: string; value: string }[] = [];
   try { metrics = JSON.parse(cs.metrics); } catch {}
 
+  const industryImages: Record<string, string> = {
+    'Precision Engineering': '/images/cs-engineering.jpg',
+    'Food Manufacturing': '/images/cs-food.jpg',
+    'Heavy Equipment': '/images/cs-logistics.jpg',
+    'Electronics': '/images/cs-electronics.jpg',
+    'Cable Manufacturing': '/images/cs-engineering.jpg',
+  };
+  const coverImage = Object.entries(industryImages).find(([k]) => cs.industry.includes(k))?.[1] || '/images/hero-factory.jpg';
+
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
+      <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-5">
         <Link to="/case-studies" className="text-[0.75rem] text-blue hover:underline">&larr; All case studies</Link>
+        {coverImage && (
+          <img src={coverImage} alt={cs.client_name} className="w-full h-[200px] object-cover rounded-xl" />
+        )}
         <div>
           <h1 className="text-[1.5rem] font-bold text-dark-text tracking-tight">{cs.client_name}</h1>
           <p className="text-[0.75rem] text-blue font-medium mt-1">{cs.industry}</p>

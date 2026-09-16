@@ -64,40 +64,21 @@ function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="lg:col-span-6 flex flex-col gap-3">
-            <div className="bg-white border border-border rounded-xl p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-[0.7rem] font-heading font-semibold text-dark-text">OpexMX · Flagship</span>
-                <span className="text-[0.6rem] text-muted ml-auto">CMMS + AI agents</span>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                <div className="flex flex-col items-center gap-1.5 p-3 bg-accent/10 rounded-lg border border-accent/30">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-accent/20">
-                    <Settings size={16} className="text-blue" />
-                  </div>
-                  <span className="text-[0.65rem] font-heading font-semibold text-dark-text">OpexMX</span>
+          <div className="lg:col-span-6">
+            <div className="relative rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)]">
+              <img
+                src="/images/hero-factory.jpg"
+                alt="Modern manufacturing floor"
+                className="w-full h-[280px] sm:h-[340px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand/70 via-brand/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1.5">
+                <span className="text-[0.625rem] font-heading font-semibold text-white/80 uppercase tracking-wide">Live on the floor</span>
+                <span className="text-[1rem] font-heading font-bold text-white">OpexMX — maintenance, execution, excellence</span>
+                <div className="flex items-center gap-3 mt-1">
+                  <span className="text-[0.625rem] text-white/60">Siemens · Epicor · Mendix · Zebra · UiPath</span>
                 </div>
-                {PRODUCT_MODULES.map((m) => {
-                  const Icon = iconMap[m.icon];
-                  return (
-                    <div key={m.id} className="flex flex-col items-center gap-1.5 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${m.color}15` }}>
-                        {Icon && <Icon size={16} className="" />}
-                      </div>
-                      <span className="text-[0.65rem] font-heading font-semibold text-dark-text">{m.name}</span>
-                    </div>
-                  );
-                })}
               </div>
-            </div>
-            <div className="flex items-center justify-center gap-2 py-2 px-4 bg-slate-100/60 rounded-lg">
-              <span className="text-[0.625rem] font-semibold text-dark-text whitespace-nowrap">
-                ECOSYSTEM:
-              </span>
-              <span className="text-[0.625rem] font-medium text-muted">
-                Siemens · Epicor · Mendix · Zebra · UiPath · Kinaxis
-              </span>
             </div>
           </div>
         </section>
