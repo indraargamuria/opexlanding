@@ -47,7 +47,7 @@ function SolutionsPage() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-8">
         {/* Header */}
         <section className="flex flex-col gap-3">
-          <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">SOLUTIONS</div>
+          <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">SOLUTIONS</div>
           <h1 className="text-[1.75rem] font-bold text-dark-text tracking-tight">How we help</h1>
           <p className="text-[0.875rem] text-muted leading-relaxed max-w-2xl">
             Every engagement combines our software with our consulting expertise.
@@ -68,7 +68,7 @@ function SolutionsPage() {
                 <p className="text-[0.75rem] text-muted leading-relaxed flex-1">{s.desc}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {s.products.map((p) => (
-                    <Link key={p} to={p === 'OpexMX' ? '/opexmx' : '/products'} className="text-[0.5625rem] font-medium px-2 py-0.5 rounded-full bg-accent/10 text-accent hover:bg-accent/20">
+                    <Link key={p} to={p === 'OpexMX' ? '/opexmx' : '/products'} className="text-[0.5625rem] font-medium px-2 py-0.5 rounded-full bg-blue/10 text-blue hover:bg-blue/20">
                       {p}
                     </Link>
                   ))}

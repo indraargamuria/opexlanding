@@ -7,6 +7,10 @@
   --color-accent: #F59E0B;
   --color-accent-hover: #D97706;
   --color-accent-active: #B45309;
+  --color-blue: #2563EB;
+  --color-blue-dark: #1E40AF;
+  --color-blue-light: #EFF6FF;
+  --color-blue-border: #BFDBFE;
   --color-dark-accent: #0F172A;
   --color-dark-navy: #0F172A;
   --color-light-bg: #F8FAFC;
@@ -47,6 +51,10 @@
   --accent: #F59E0B;
   --accent-hover: #D97706;
   --accent-active: #B45309;
+  --blue: #2563EB;
+  --blue-dark: #1E40AF;
+  --blue-light: #EFF6FF;
+  --blue-border: #BFDBFE;
   --dark-accent: #0F172A;
   --light-bg: #F8FAFC;
   --dark-text: #1E293B;

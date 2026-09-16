@@ -15,7 +15,7 @@ function BlogPage() {
     <div className="h-full overflow-y-auto">
       <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
         <div>
-          <span className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">BLOG</span>
+          <span className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">BLOG</span>
           <h1 className="text-[1.5rem] font-bold text-dark-text tracking-tight mt-1">Insights & Updates</h1>
           <p className="text-[0.8125rem] text-muted mt-1">Maintenance insights, product updates, and operational excellence.</p>
         </div>

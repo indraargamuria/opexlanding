@@ -24,7 +24,7 @@ function OpexMxPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 flex flex-col gap-4">
             <div className="inline-flex items-center gap-2 self-start text-[0.7rem] font-semibold tracking-wide uppercase">
-              <span className="px-2 py-0.5 rounded bg-accent text-dark-navy font-heading">FLAGSHIP PRODUCT</span>
+              <span className="px-2 py-0.5 rounded bg-blue text-white font-heading">FLAGSHIP PRODUCT</span>
               <span className="text-white/60">Computerized Maintenance Management System</span>
             </div>
             <h1 className="text-[2rem] md:text-[2.75rem] font-bold leading-[1.08] tracking-tight text-white">

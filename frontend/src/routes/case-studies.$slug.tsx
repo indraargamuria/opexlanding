@@ -21,10 +21,10 @@ function CaseStudyDetail({ slug }: { slug: string }) {
   return (
     <div className="h-full overflow-y-auto">
       <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
-        <Link to="/case-studies" className="text-[0.75rem] text-accent hover:underline">&larr; All case studies</Link>
+        <Link to="/case-studies" className="text-[0.75rem] text-blue hover:underline">&larr; All case studies</Link>
         <div>
           <h1 className="text-[1.5rem] font-bold text-dark-text tracking-tight">{cs.client_name}</h1>
-          <p className="text-[0.75rem] text-accent font-medium mt-1">{cs.industry}</p>
+          <p className="text-[0.75rem] text-blue font-medium mt-1">{cs.industry}</p>
         </div>
         <p className="text-[0.875rem] text-muted leading-relaxed">{cs.summary}</p>
         {metrics.length > 0 && (

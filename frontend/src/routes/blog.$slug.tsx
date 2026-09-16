@@ -18,7 +18,7 @@ function BlogPost({ slug }: { slug: string }) {
   return (
     <div className="h-full overflow-y-auto">
       <div className="max-w-[700px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-5">
-        <Link to="/blog" className="text-[0.75rem] text-accent hover:underline">&larr; All posts</Link>
+        <Link to="/blog" className="text-[0.75rem] text-blue hover:underline">&larr; All posts</Link>
         <h1 className="text-[1.5rem] font-bold text-dark-text tracking-tight">{post.title}</h1>
         <div className="flex items-center gap-3 text-[0.75rem] text-muted">
           <span className="font-heading font-semibold text-dark-text">{post.author_name}</span>

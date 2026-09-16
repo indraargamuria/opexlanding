@@ -30,7 +30,7 @@ function HomePage() {
         {/* ═══ Hero ═══ */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 flex flex-col gap-4">
-            <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">
+            <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">
               <span className="mr-1">&#9889;</span>
               FLAGSHIP PRODUCT
             </div>
@@ -75,7 +75,7 @@ function HomePage() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 <div className="flex flex-col items-center gap-1.5 p-3 bg-accent/10 rounded-lg border border-accent/30">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-accent/20">
-                    <Settings size={16} className="text-accent-active" />
+                    <Settings size={16} className="text-blue" />
                   </div>
                   <span className="text-[0.65rem] font-heading font-semibold text-dark-text">OpexMX</span>
                 </div>
@@ -145,7 +145,7 @@ function HomePage() {
         {/* ═══ Consultancy (Secondary) ═══ */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-5 flex flex-col gap-3">
-            <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">IMPLEMENTATION & ADVISORY</div>
+            <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">IMPLEMENTATION & ADVISORY</div>
             <h2 className="text-[1.25rem] font-bold text-dark-text tracking-tight">Consultancy that comes with every product</h2>
             <p className="text-[0.8125rem] text-muted leading-relaxed">
               Our Lean Six Sigma and Industry 4.0 consultants don't just sell software — we help you implement it,
@@ -179,7 +179,7 @@ function HomePage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {framework.map((f) => (
                   <div key={f.num} className="flex flex-col gap-1.5 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                    <span className="text-[0.625rem] font-heading font-bold text-accent">{f.num}</span>
+                    <span className="text-[0.625rem] font-heading font-bold text-blue">{f.num}</span>
                     <span className="text-[0.6875rem] font-heading font-semibold text-dark-text">{f.title}</span>
                     <span className="text-[0.5625rem] text-muted leading-snug">{f.desc}</span>
                   </div>

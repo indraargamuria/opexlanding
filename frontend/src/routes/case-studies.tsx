@@ -15,7 +15,7 @@ function CaseStudiesPage() {
     <div className="h-full overflow-y-auto">
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
         <div>
-          <span className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">CASE STUDIES</span>
+          <span className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">CASE STUDIES</span>
           <h1 className="text-[1.5rem] font-bold text-dark-text tracking-tight mt-1">Real Results from Real Teams</h1>
           <p className="text-[0.8125rem] text-muted mt-1">Manufacturing operations that moved maintenance off WhatsApp and spreadsheets onto OpexMX.</p>
         </div>
@@ -34,7 +34,7 @@ function CaseStudiesPage() {
                 className="bg-white border border-border rounded-xl p-5 flex flex-col gap-3 hover:shadow-md transition-shadow no-underline">
                 <div>
                   <h2 className="text-[0.9375rem] font-heading font-semibold text-dark-text">{cs.client_name}</h2>
-                  <p className="text-[0.6875rem] text-accent font-medium">{cs.industry}</p>
+                  <p className="text-[0.6875rem] text-blue font-medium">{cs.industry}</p>
                 </div>
                 <p className="text-[0.75rem] text-muted leading-relaxed">{cs.summary}</p>
                 <div className="flex flex-wrap gap-2 mt-auto">

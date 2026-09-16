@@ -10,7 +10,7 @@ function ProductsPage() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-8">
         {/* ═══ Header ═══ */}
         <section className="flex flex-col gap-3">
-          <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-accent">OUR PRODUCTS</div>
+          <div className="text-[0.7rem] font-semibold tracking-wide uppercase text-blue">OUR PRODUCTS</div>
           <h1 className="text-[1.75rem] font-bold text-dark-text tracking-tight">{OPEX_AIO.name}</h1>
           <p className="text-[0.875rem] text-muted leading-relaxed max-w-2xl">
             {OPEX_AIO.description}
