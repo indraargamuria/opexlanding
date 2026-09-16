@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createRoute } from '@tanstack/react-router';
+import Markdown from 'react-markdown';
 import { Route as rootRoute } from './__root';
 import {
   adminVerify, adminListPosts, adminCreatePost, adminUpdatePost, adminDeletePost,
@@ -107,6 +108,7 @@ function AdminPage() {
 function Editor({ type, data, onSaved, onCancel }: { type: 'post' | 'cs'; data: Record<string, unknown>; onSaved: () => void; onCancel: () => void }) {
   const [form, setForm] = useState(data);
   const [saving, setSaving] = useState(false);
+  const [previewMd, setPreviewMd] = useState(false);
   const set = (k: string, v: unknown) => setForm((f) => ({ ...f, [k]: v }));
   const save = async () => {
     setSaving(true);
@@ -128,7 +130,21 @@ function Editor({ type, data, onSaved, onCancel }: { type: 'post' | 'cs'; data: 
         <>
           <L label="Title"><input className={inputCls} value={String(form.title || '')} onChange={(e) => set('title', e.target.value)} /></L>
           <L label="Excerpt"><textarea className={inputCls + ' h-16'} value={String(form.excerpt || '')} onChange={(e) => set('excerpt', e.target.value)} /></L>
-          <L label="Body (Markdown)"><textarea className={inputCls + ' h-48 font-mono text-[0.75rem]'} value={String(form.body_md || '')} onChange={(e) => set('body_md', e.target.value)} /></L>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center justify-between">
+              <label className="text-[0.6875rem] font-heading font-semibold text-dark-text">Body (Markdown)</label>
+              <button type="button" onClick={() => setPreviewMd(!previewMd)} className="text-[0.625rem] text-blue hover:underline cursor-pointer">
+                {previewMd ? 'Edit' : 'Preview'}
+              </button>
+            </div>
+            {previewMd ? (
+              <div className="border border-border rounded-md p-3 h-48 overflow-y-auto prose prose-sm max-w-none">
+                <Markdown>{String(form.body_md || '')}</Markdown>
+              </div>
+            ) : (
+              <textarea className={inputCls + ' h-48 font-mono text-[0.75rem]'} value={String(form.body_md || '')} onChange={(e) => set('body_md', e.target.value)} />
+            )}
+          </div>
           <div className="grid grid-cols-2 gap-3">
             <L label="Author Name"><input className={inputCls} value={String(form.author_name || 'OpexCG Team')} onChange={(e) => set('author_name', e.target.value)} /></L>
             <L label="Author Role"><input className={inputCls} value={String(form.author_role || '')} onChange={(e) => set('author_role', e.target.value)} /></L>

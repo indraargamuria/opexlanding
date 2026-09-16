@@ -22,6 +22,24 @@ const offices = [
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please try again.');
+    }
+  };
 
   return (
     <div className="h-full overflow-y-auto">
@@ -43,7 +61,7 @@ function ContactPage() {
                 <span className="text-[0.75rem] text-muted">We&apos;ll get back to you within 48 hours.</span>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="flex flex-col gap-3">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="flex flex-col gap-1">
                     <label className="text-[0.75rem] font-heading font-semibold text-dark-text">Name</label>
@@ -61,6 +79,7 @@ function ContactPage() {
                 <button type="submit" className="self-start font-heading font-semibold text-[0.8125rem] px-6 py-2.5 bg-brand text-white rounded-lg hover:bg-brand-hover active:bg-brand-active transition-colors cursor-pointer">
                   Send message
                 </button>
+                {error && <span className="text-[0.75rem] text-red-500">{error}</span>}
               </form>
             )}
           </div>
